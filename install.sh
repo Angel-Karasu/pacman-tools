@@ -21,10 +21,10 @@ sudo chmod -R +x /etc/pacman.d/pacman-tools/
 echo "Add aliases for bash"
 sudo cp pacman_tools.bashrc /etc/bash/bashrc.d/
 
-remove="yes"
+remove=""
 read -rp "Would you want to remove the installation script ? [Y/n] " remove
 
-if [[ ${remove,,} =~ ^(yes|y)$ ]]; then
+if [[ ${remove,,} =~ ^(no|n)$ ]]; then
     cd ../
     rm -rf pacman-tools
 fi
