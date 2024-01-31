@@ -14,7 +14,7 @@ chmod +x ./install.sh;
 ```
 
 ## Usage
-To get the list of commands, run :
+To get the list of commands :
 - For pacman cleaner :
 ```shell
 clean-pacman -h
@@ -41,6 +41,20 @@ To uninstall pacman-tools, run :
 ```shell
 /etc/pacman.d/pacman-tools/uninstall.sh
 ```
+
+## Compatible
+
+Arch based-distributions compatible : 
+- Arch Linux
+- Artix Linux
+
+Shell aliases available :
+- bash
+
+## To do
+
+- Add more Arch based-distributions compatible (EndeavourOS, Manjaro, ...)
+- Add aliases for other shells (ZSH, Fish)
 
 ## License
 
