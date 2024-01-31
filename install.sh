@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd $(realpath `dirname $0`)
-source pacman-tools/check_status.sh
+source scripts/check_status.sh
 
 check_sudo
 
