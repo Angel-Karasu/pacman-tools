@@ -29,14 +29,14 @@ fix-keys -h
 update-mirrors -h
 ```
 
-## Update
+### Update
 
 To update pacman-tools, run :
 ```shell
 update-pacman-tools
 ```
 
-## Uninstall
+### Uninstall
 
 To uninstall pacman-tools, run :
 ```shell
