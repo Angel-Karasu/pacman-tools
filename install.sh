@@ -15,11 +15,11 @@ if [ $(pacman -Qi curl git pacman-contrib sed >&/dev/null; echo $?) != 0 ]; then
 fi
 
 echo "Add the scripts in /etc/pacman.d/pacman-tools/"
-sudo cp -r ./pacman-tools /etc/pacman.d/
+sudo cp -r scripts /etc/pacman.d/pacman-tools
 sudo chmod -R +x /etc/pacman.d/pacman-tools/
 
 echo "Add aliases for bash"
-sudo cp ./pacman_tools.bashrc /etc/bash/bashrc.d/
+sudo cp pacman_tools.bashrc /etc/bash/bashrc.d/
 
 remove="yes"
 read -rp "Would you want to remove the installation script ? [Y/n] " remove
