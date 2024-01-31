@@ -1,5 +1,8 @@
 #!/bin/sh
 
+cd $(realpath `dirname $0`)
+source ./check_status.sh
+
 usage() {
     echo -e "Usage : fix-keys [OPTIONS] [KEYS]\n"
     echo "Commands :"
@@ -16,9 +19,14 @@ usage() {
 }
 
 fix_keys() {
+    check_internet
+    check_sudo
+
     sudo pacman-key --init
     sudo pacman-key --populate $1
     sudo pacman -S --noconfirm $1-keyring
+
+    echo "\nSuccess to fix $1 keys"
 }
 
 REFRESH=false
@@ -38,9 +46,13 @@ while [ "$#" -ne 0 ]; do
             shift
             ;;
         -a|--all)
+            check_internet
+            check_sudo
+
             sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
             sudo pacman -Syy
-            "$(realpath `dirname $0`)/fix_keys.sh" --artix --arch
+            ./fix_keys.sh --artix --arch
+
             shift
             ;;
         --arch)

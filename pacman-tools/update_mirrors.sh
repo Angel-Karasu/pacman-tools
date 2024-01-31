@@ -1,5 +1,8 @@
 #!/bin/sh
 
+cd $(realpath `dirname $0`)
+source ./check_status.sh
+
 usage() {
     echo -e "Usage : update-mirrors [OPTIONS] [MIRRORS]\n"
     echo "Commands :"
@@ -18,12 +21,21 @@ usage() {
 }
 
 update_mirror_list() {
+    check_internet
+    check_sudo
+
     file=/etc/pacman.d/mirrorlist$([[ $(cat /etc/os-release | sed -e "/$1/b" -e d) ]] && echo '' || echo -$1)
     if [ $BACKUP = false ]; then sudo cp $file $file.backup; fi
 
     if [ $VERBOSE = true ]; then
-        curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file;
-    else curl -s $2 | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -w -n 6 - | sudo tee $file; fi
+        curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file
+        if [ $REFRESH = true ]; then sudo pacman -Syy; fi
+
+        echo "\nSuccess to update $1 mirrors"
+    else
+        curl -s $2 | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -w -n 6 - | sudo tee $file;
+        if [ $REFRESH = true ]; then sudo pacman -Syy >&/dev/null; fi
+    fi
 }
 
 REFRESH=false
@@ -45,6 +57,7 @@ while [ "$#" -ne 0 ]; do
             ;;
         -r|--refresh)
             REFRESH=true
+            r=-r
             shift
             ;;
         -v|--verbose)
@@ -53,8 +66,8 @@ while [ "$#" -ne 0 ]; do
             shift
             ;;
         -a|--all)
-            exec $(realpath `dirname $0`)/update_mirrors.sh $b $v --arch --artix
-            shift
+            exec $(realpath `dirname $0`)/update_mirrors.sh $b $r $v --arch --artix
+            exit 0
             ;;
         --arch)
             update_mirror_list "arch" "https://archlinux.org/mirrorlist/?country=all&protocol=https"
@@ -71,7 +84,5 @@ while [ "$#" -ne 0 ]; do
             ;;
     esac
 done
-
-if [ $REFRESH = true ]; then sudo pacman -Syy; fi
 
 exit 0
