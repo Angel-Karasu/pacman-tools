@@ -23,6 +23,7 @@ sudo cp pacman_tools.bashrc /etc/bash/bashrc.d/
 
 remove=""
 read -rp "Would you want to remove the installation script ? [Y/n] " remove
+remove=${remove,,}
 
 if [[ ${remove,,} =~ ^(no|n)$ ]]; then
     cd ../
