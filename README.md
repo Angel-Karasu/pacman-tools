@@ -10,7 +10,8 @@ To install pacman tools, clone this repository and run the install script:
 git clone https://github.com/Angel-Karasu/pacman-tools.git;
 cd pacman-tools;
 chmod +x ./install.sh;
-./install.sh
+./install.sh;
+cd ../
 ```
 
 ## Usage
