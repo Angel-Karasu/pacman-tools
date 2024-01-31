@@ -25,7 +25,7 @@ remove=""
 read -rp "Would you want to remove the installation script ? [Y/n] " remove
 remove=${remove,,}
 
-if [[ ${remove,,} =~ ^(no|n)$ ]]; then
+if [[ ! ${remove,,} =~ ^(no|n)$ ]]; then
     cd ../
     rm -rf pacman-tools
 fi
