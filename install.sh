@@ -21,7 +21,7 @@ echo "Add aliases for bash"
 sudo cp pacman_tools.bashrc /etc/bash/bashrc.d/
 
 printf "Would you want to remove the installation script ? [Y/n] "; read -r
-[ "`echo $REPLY | tr N n | cut -c1`" = n ] || rm -rf ../pacman-tools
+[ "`echo $REPLY | tr N n | cut -c1`" = n ] || sudo rm -rf ../pacman-tools
 
 printf "\nSuccess to install pacman-tools\n"
 exit 0
