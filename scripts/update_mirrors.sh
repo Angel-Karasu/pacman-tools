@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd $(realpath `dirname $0`)
+cd $(realpath $(dirname $0))
 source ./check_status.sh
 
 usage() {
-    echo -e "Usage : update-mirrors [OPTIONS] [MIRRORS]\n"
+    printf "Usage : update-mirrors [OPTIONS] [MIRRORS]\n\n"
     echo "Commands :"
     echo "  -h, --help    : Display this help."
     echo ""
@@ -25,26 +25,24 @@ update_mirror_list() {
     check_sudo
 
     file=/etc/pacman.d/mirrorlist$([[ $(cat /etc/os-release | sed -e "/$1/b" -e d) ]] && echo '' || echo -$1)
-    if [ $BACKUP = false ]; then sudo cp $file $file.backup; fi
+    if [ "$BACKUP" = false ]; then sudo cp $file $file.backup; fi
 
     if [ $VERBOSE = true ]; then
         curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file
-        if [ $REFRESH = true ]; then sudo pacman -Syy; fi
+        if [ "$REFRESH" = true ]; then sudo pacman -Syy; fi
 
-        echo "\nSuccess to update $1 mirrors"
+        printf "\nSuccess to update $1 mirrors\n"
     else
         curl -s $2 | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -w -n 6 - | sudo tee $file;
-        if [ $REFRESH = true ]; then sudo pacman -Syy >&/dev/null; fi
+        if [ "$REFRESH" = true ]; then sudo pacman -Syy >&/dev/null; fi
     fi
 }
-
-REFRESH=false
 
 if [ "$#" = 0 ]; then
     usage
     exit 0
 fi
-while [ "$#" -ne 0 ]; do
+while [ "$#" != 0 ]; do
     case "$1" in
         -h|--help)
             usage
@@ -66,7 +64,7 @@ while [ "$#" -ne 0 ]; do
             shift
             ;;
         -a|--all)
-            exec $(realpath `dirname $0`)/update_mirrors.sh $b $r $v --arch --artix
+            $(realpath $(dirname $0))/update_mirrors.sh $b $r $v --arch --artix
             exit 0
             ;;
         --arch)

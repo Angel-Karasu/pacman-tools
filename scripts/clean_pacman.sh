@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd $(realpath `dirname $0`)
+cd $(realpath $(dirname $0))
 source ./check_status.sh
 
 usage() {
-    echo -e "Usage : fix-keys [OPTIONS]\n"
+    printf "Usage : fix-keys [OPTIONS]\n\n"
     echo "Commands :"
     echo "  -h, --help  : Display this help."
     echo ""

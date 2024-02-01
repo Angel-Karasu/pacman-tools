@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cd $(realpath `dirname $0`)
+cd $(realpath $(dirname $0))
 source ./check_status.sh
 
 usage() {
-    echo -e "Usage : fix-keys [OPTIONS] [KEYS]\n"
+    printf "Usage : fix-keys [OPTIONS] [KEYS]\n\n"
     echo "Commands :"
     echo "  -h, --help    : Display this help."
     echo ""
@@ -26,16 +26,14 @@ fix_keys() {
     sudo pacman-key --populate $1
     sudo pacman -S --noconfirm $1-keyring
 
-    echo "\nSuccess to fix $1 keys"
+    printf "\nSuccess to fix $1 keys\n"
 }
-
-REFRESH=false
 
 if [ "$#" = 0 ]; then
     usage
     exit 0
 fi
-while [ "$#" -ne 0 ]; do
+while [ "$#" != 0 ]; do
     case "$1" in
         -h|--help)
             usage
@@ -71,6 +69,6 @@ while [ "$#" -ne 0 ]; do
     esac
 done
 
-if [ $REFRESH = true ]; then sudo pacman -Syy; fi
+if [ "$REFRESH" = true ]; then sudo pacman -Syy; fi
 
 exit 0
