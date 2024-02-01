@@ -70,7 +70,7 @@ while [ "$#" -ne 0 ]; do
             exit 0
             ;;
         --arch)
-            update_mirror_list "arch" "https://archlinux.org/mirrorlist/?country=all&protocol=https"
+            update_mirror_list "arch" "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on"
             shift
             ;;
         --artix)
