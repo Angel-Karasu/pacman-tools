@@ -11,4 +11,5 @@ sudo chmod +x ./pacman-tools/install.sh
 sudo sed -i 's|\binstall\b|update|g; s|Add|Update|g; s|printf|#printf|g'  ./pacman-tools/install.sh
 ./pacman-tools/install.sh
 
+printf "\nSuccess to update pacman-tools\n"
 exit 0
