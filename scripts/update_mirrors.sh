@@ -27,7 +27,7 @@ update_mirror_list() {
     file=/etc/pacman.d/mirrorlist$([[ $(cat /etc/os-release | sed -e "/$1/b" -e d) ]] && echo '' || echo -$1)
     if [ "$BACKUP" = false ]; then sudo cp $file $file.backup; fi
 
-    if [ $VERBOSE = true ]; then
+    if [ "$VERBOSE" = true ]; then
         curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file
         if [ "$REFRESH" = true ]; then sudo pacman -Syy; fi
 
