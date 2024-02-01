@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd `realpath $(dirname $0)` || exit 1
-. scripts/check_status.sh
+. check_status.sh
 
 usage() {
     printf "Usage : fix-keys [OPTIONS]\n\n"
