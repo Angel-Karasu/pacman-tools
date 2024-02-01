@@ -14,7 +14,7 @@ if ! pacman -Qi curl git pacman-contrib sed >/dev/null 2>&1; then
 fi
 
 echo "Add the scripts in /etc/pacman.d/pacman-tools/"
-sudo cp -r scripts /etc/pacman.d/pacman-tools
+sudo cp -r scripts/* /etc/pacman.d/pacman-tools/
 sudo chmod -R +x /etc/pacman.d/pacman-tools/
 
 echo "Add aliases for bash"
