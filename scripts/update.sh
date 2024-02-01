@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd $(realpath $(dirname $0))
-source ./check_status.sh
+cd `realpath $(dirname $0)` || exit 1
+. scripts/check_status.sh
 
 check_internet
 check_sudo

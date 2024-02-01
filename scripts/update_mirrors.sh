@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd $(realpath $(dirname $0))
-source ./check_status.sh
+cd `realpath $(dirname $0)` || exit 1
+. scripts/check_status.sh
 
 usage() {
     printf "Usage : update-mirrors [OPTIONS] [MIRRORS]\n\n"
@@ -25,16 +25,16 @@ update_mirror_list() {
     check_sudo
 
     file=/etc/pacman.d/mirrorlist$([[ $(cat /etc/os-release | sed -e "/$1/b" -e d) ]] && echo '' || echo -$1)
-    if [ "$BACKUP" = false ]; then sudo cp $file $file.backup; fi
+    [ "$BACKUP" ] || sudo cp $file $file.backup
 
-    if [ "$VERBOSE" = true ]; then
+    if [ "$VERBOSE" ]; then
         curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file
-        if [ "$REFRESH" = true ]; then sudo pacman -Syy; fi
+        [ "$REFRESH" ] || sudo pacman -Syy
 
         printf "\nSuccess to update $1 mirrors\n"
     else
         curl -s $2 | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -w -n 6 - | sudo tee $file;
-        if [ "$REFRESH" = true ]; then sudo pacman -Syy >&/dev/null; fi
+        [ "$REFRESH" ] || sudo pacman -Syy >/dev/null 2>&1
     fi
 }
 
@@ -64,7 +64,7 @@ while [ "$#" != 0 ]; do
             shift
             ;;
         -a|--all)
-            $(realpath $(dirname $0))/update_mirrors.sh $b $r $v --arch --artix
+            ./update_mirrors.sh $b $r $v --arch --artix
             exit 0
             ;;
         --arch)

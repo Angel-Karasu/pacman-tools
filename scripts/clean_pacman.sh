@@ -1,7 +1,7 @@
 #!/bin/sh
 
-cd $(realpath $(dirname $0))
-source ./check_status.sh
+cd `realpath $(dirname $0)` || exit 1
+. scripts/check_status.sh
 
 usage() {
     printf "Usage : fix-keys [OPTIONS]\n\n"
@@ -22,7 +22,7 @@ cache() {
 
 dependencies() {
     check_sudo
-    sudo pacman -Rsn $(pacman -Qdtq)
+    sudo pacman -Rsn "`pacman -Qdtq`"
 }
 
 if [ "$#" = 0 ]; then
