@@ -45,23 +45,23 @@ To uninstall pacman-tools, run :
 
 ## Compatible
 
-Arch based-distributions compatible : 
-- Arch Linux
-- Artix Linux
+- Arch based-distributions compatible : 
+  - Arch Linux
+  - Artix Linux
 
-Shell aliases available :
-- bash
+- Shell aliases available :
+  - bash
 
 ## To do
 
 - Add more Arch based-distributions compatible
-  [ ] EndeavourOS
-  [ ] Garuda
-  [ ] Manjaro
+  - [ ] EndeavourOS
+  - [ ] Garuda
+  - [ ] Manjaro
   
 - Add aliases for other shells
-  [ ] ZSH
-  [ ] Fish
+  - [ ] Fish
+  - [ ] ZSH
 
 ## License
 
