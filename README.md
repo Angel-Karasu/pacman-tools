@@ -54,8 +54,14 @@ Shell aliases available :
 
 ## To do
 
-- [ ] Add more Arch based-distributions compatible (EndeavourOS, Manjaro, ...)
-- [ ] Add aliases for other shells (ZSH, Fish)
+- Add more Arch based-distributions compatible
+  [ ] EndeavourOS
+  [ ] Garuda
+  [ ] Manjaro
+  
+- Add aliases for other shells
+  [ ] ZSH
+  [ ] Fish
 
 ## License
 
