@@ -15,15 +15,21 @@ cd ../
 ```
 
 ## Usage
+
+### Commands
+
 To get the list of commands :
+
 - For pacman cleaner :
 ```shell
 clean-pacman -h
 ```
+
 - For fix the keys
 ```shell
 fix-keys -h
 ```
+
 - To update the mirrors
 ```shell
 update-mirrors -h
