@@ -7,10 +7,10 @@ check_sudo
 
 printf "Install pacman-tools\n\n"
 
-if ! pacman -Qi curl git pacman-contrib sed >/dev/null 2>&1; then
+if ! pacman -T curl git pacman-contrib sed >/dev/null; then
     check_internet
     echo "Install packages required"
-    sudo pacman -S --needed --noconfirm curl git pacman-contrib sed 2>/dev/null
+    sudo pacman -S --needed --noconfirm `pacman -T curl git pacman-contrib sed`
 fi
 
 echo "Add the scripts in /etc/pacman.d/pacman-tools/"
