@@ -19,7 +19,7 @@ usage() {
 
 check_internet() {
     if ! ping -c 1 -q github.com >/dev/null 2>&1; then
-        echo "Error: No Internet connection"
+        echo "Error connecting to github"
         exit 1
     fi
 }
