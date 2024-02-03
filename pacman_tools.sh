@@ -81,33 +81,22 @@ if [ "$#" = 0 ]; then
 else
     case "$1" in
         -h|--help)
-            usage
-            exit 0
-            ;;
+            usage;;
         --update)
-            update
-            exit 0
-            ;;
+            update;;
         --uninstall)
-            uninstall
-            exit 0
-            ;;
+            uninstall;;
         -c|--clean)
-            clean_pacman
-            exit 0
-            ;;
+            clean_pacman;;
         -f|--fix-keys)
-            fix_keys
-            exit 0
-            ;;
+            fix_keys;;
         -u|--update-mirrors)
-            update_mirrors
-            exit 0
-            ;;
+            update_mirrors;;
         *)
             echo "Error: Unknown option '$1'"
             usage
             exit 1
             ;;
     esac
+    exit 0
 fi
