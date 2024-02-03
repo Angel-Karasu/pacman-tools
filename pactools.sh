@@ -38,10 +38,13 @@ fix_keys() {
     check_internet
     check_sudo
 
+    . /etc/os-release
+
     sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
     sudo pacman -Syy
     sudo pacman-key --init
-    for keyring in `pacman -Qq | sed -e "/keyring/b" -e d | sort -r`; do
+    keyrings= `pacman -Qq | sed -e "/keyring/b" -e d`
+    for keyring in $ID`echo $keyrings | sed "s/.*$ID//"` `echo $keyrings | sed "s/$ID.*//"`; do
         sudo pacman-key --populate `echo $keyring | sed "s/-keyring//g"`
         sudo pacman -S --noconfirm $keyring
         printf "\nSuccess to fix $keyring\n"
