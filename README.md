@@ -1,10 +1,10 @@
-# Pacman Tools
+# PacTools
 
 This is a simple set of tools for pacman, the package manager Arch Linux-based distributions. It can clean pacman cache, remove unused packages, fix pacman keys and update pacman mirrors.
 
 ## Installation
 
-To install pacman tools, clone this repository and run the install script:
+To install pactools, clone this repository and run the install script:
 
 ```shell
 git clone https://github.com/Angel-Karasu/pactools.git;
