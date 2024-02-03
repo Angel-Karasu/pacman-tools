@@ -16,37 +16,31 @@ cd ../
 
 ## Usage
 
-### Commands
-
 To get the list of commands :
 
 - For pacman cleaner :
 ```shell
-clean-pacman -h
+pacman-tools -c
 ```
 
 - For fix the keys
 ```shell
-fix-keys -h
+pacman-tools -f
 ```
 
 - To update the mirrors
 ```shell
-update-mirrors -h
+pacman-tools -u
 ```
-
-### Update
 
 To update pacman-tools, run :
 ```shell
-update-pacman-tools
+pacman-tools --update
 ```
-
-### Uninstall
 
 To uninstall pacman-tools, run :
 ```shell
-/etc/pacman.d/pacman-tools/uninstall.sh
+pacman-tools --uninstall
 ```
 
 ## Compatible
@@ -55,19 +49,12 @@ To uninstall pacman-tools, run :
   - Arch Linux
   - Artix Linux
 
-- Shell aliases available :
-  - bash
-
 ## To do
 
 - Add more Arch based-distributions compatible
   - [ ] EndeavourOS
   - [ ] Garuda
   - [ ] Manjaro
-  
-- Add aliases for other shells
-  - [ ] Fish
-  - [ ] ZSH
 
 ## License
 
