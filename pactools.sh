@@ -1,11 +1,14 @@
 #!/bin/sh
 
 usage() {
-    printf "Usage : pactools [TOOL]\n\n"
+    printf "Usage : pactools [OPTIONS] [TOOL]\n\n"
     echo "Commands :"
     echo "  -h, --help           : Display this help."
     echo "      --update         : Update pactools."
     echo "      --uninstall      : Uninstall pactools."
+    echo ""
+    echo "Options :"
+    echo "  -q, --quiet          : Quiet mode."
     echo ""
     echo "Tools :"
     echo "  -c, --clean          : Clean pacman cache and remove unused dependencies."
@@ -95,17 +98,21 @@ else
                 uninstall
                 exit 0
                 ;;
-            -c|--clean)
-                clean_pacman
+            -q|--quiet)
+                QUIET=true
                 shift
+                ;;
+            -c|--clean)
+                clean_pacman ${QUIET:+>/dev/null}
+                exit 0
                 ;;
             -f|--fix-keys)
-                fix_keys
-                shift
+                fix_keys ${QUIET:+>/dev/null}
+                exit 0
                 ;;
             -u|--update-mirrors)
-                update_mirrors
-                shift
+                update_mirrors ${QUIET:+>/dev/null}
+                exit 0
                 ;;
             *)
                 echo "Error: Unknown option '$1'"
@@ -114,5 +121,4 @@ else
                 ;;
         esac
     done
-    exit 0
 fi
