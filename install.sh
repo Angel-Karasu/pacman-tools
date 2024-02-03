@@ -15,11 +15,11 @@ fi
 
 sudo chmod +x ./*.sh
 
+echo "Config update mirrors"
+./install_update_mirrors.sh
+
 echo "Add pactools command"
 sudo cp ./pactools.sh /usr/local/bin/pactools
-
-echo "Config update mirrors command"
-./install_update_mirrors.sh
 
 printf "\nWould you want to remove the installation script ? [Y/n] "; read -r
 [ "`echo $REPLY | tr N n | cut -c1`" = n ] || sudo rm -rf ../pactools

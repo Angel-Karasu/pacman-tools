@@ -1,6 +1,7 @@
 #!/bin/sh
 
 . /etc/os-release
+. ./pactools.sh >/dev/null
 
 sudo cp update_mirrors.sh /etc/pacman.d/
 
@@ -15,6 +16,14 @@ add_arch() {
     add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1
 }
 
+check_package() {
+    if ! pacman -T $1 >/dev/null; then
+        check_internet
+        echo " - Install $1"
+        sudo pacman -S --noconfirm $1
+    fi
+}
+
 case $ID in
     arch)
         add_arch;;
@@ -23,10 +32,12 @@ case $ID in
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
         ;;
     endeavouros)
-        add_in_update_mirrrors "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
+        check_package eos-rankmirrors
+        echo 'eos-rankmirrors' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
         add_arch
         ;;
     manjaro)
+        check_package pacman-mirrors
         echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
     *)
         echo "$ID is not compatible."
