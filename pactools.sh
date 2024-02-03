@@ -67,7 +67,7 @@ update() {
 
     printf "Update pactools\n\n"
     
-    sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools
+    sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools || exit 1
     sudo chmod +x /var/tmp/pactools/install.sh
     sudo sed -i 's|Add|Update|g; s|printf|#printf|g'  /var/tmp/pactools/install.sh
     echo ""
