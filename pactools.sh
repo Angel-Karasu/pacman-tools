@@ -78,24 +78,26 @@ uninstall() {
 if [ "$#" = 0 ]; then
     usage
 else
-    case "$1" in
-        -h|--help)
-            usage;;
-        --update)
-            update;;
-        --uninstall)
-            uninstall;;
-        -c|--clean)
-            clean_pacman;;
-        -f|--fix-keys)
-            fix_keys;;
-        -u|--update-mirrors)
-            update_mirrors;;
-        *)
-            echo "Error: Unknown option '$1'"
-            usage
-            exit 1
-            ;;
-    esac
+    while [ "$#" -ne 0 ]; do 
+        case "$1" in
+            -h|--help)
+                usage;;
+            --update)
+                update;;
+            --uninstall)
+                uninstall;;
+            -c|--clean)
+                clean_pacman;;
+            -f|--fix-keys)
+                fix_keys;;
+            -u|--update-mirrors)
+                update_mirrors;;
+            *)
+                echo "Error: Unknown option '$1'"
+                usage
+                exit 1
+                ;;
+        esac
+    done
     exit 0
 fi
