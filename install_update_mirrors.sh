@@ -12,19 +12,22 @@ add_in_update_mirrrors() {
 }
 
 add_arch() {
-    add_in_update_mirrrors "arch" "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on"
+    add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1
 }
 
 case $ID in
     arch)
         add_arch;;
     artix)
-        add_in_update_mirrrors "artix" "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist"
-        [ "`pacman -T archlinux-mirrorlist`" ] || add_arch
+        add_in_update_mirrrors "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist" mirrorlist
+        [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
+        ;;
+    endeavouros)
+        add_in_update_mirrrors "https://raw.githubusercontent.com/endeavouros-team/PKGBUILDS/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
+        add_arch
         ;;
     manjaro)
-        echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
-        ;;
+        echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
     *)
         echo "$ID is not compatible."
         exit 1
