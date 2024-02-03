@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd `realpath $(dirname $0)` || exit 1
-. check_status.sh
+. ./check_status.sh
 
 usage() {
     printf "Usage : update-mirrors [OPTIONS] [MIRRORS]\n\n"
