@@ -103,15 +103,15 @@ else
                 shift
                 ;;
             -c|--clean)
-                clean_pacman ${QUIET:+>/dev/null}
+                [ $QUIET ] && clean_pacman >/dev/null || clean_pacman
                 exit 0
                 ;;
             -f|--fix-keys)
-                fix_keys ${QUIET:+>/dev/null}
+                [ $QUIET ] && fix_keys >/dev/null || fix_keys
                 exit 0
                 ;;
             -u|--update-mirrors)
-                update_mirrors ${QUIET:+>/dev/null}
+                [ $QUIET ] && update_mirrors >/dev/null || update_mirrors
                 exit 0
                 ;;
             *)
