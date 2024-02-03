@@ -33,7 +33,7 @@ case $ID in
         ;;
     endeavouros)
         check_package eos-rankmirrors
-        echo 'eos-rankmirrors' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
+        echo 'eos-rankmirrors' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
         add_arch
         ;;
     manjaro)
