@@ -22,6 +22,8 @@ case $ID in
         add_in_update_mirrrors "artix" "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist"
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch
         ;;
+    manjaro)
+         echo "sudo pacman-mirrors --fasttrack 6" | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
     *)
         echo "$ID is not compatible."
         exit 1
