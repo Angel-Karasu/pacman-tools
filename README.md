@@ -38,12 +38,12 @@ pacman-tools -f
 pacman-tools -u
 ```
 
-To update pacman-tools, run :
+- To update pacman-tools, run :
 ```shell
 pacman-tools --update
 ```
 
-To uninstall pacman-tools, run :
+- To uninstall pacman-tools, run :
 ```shell
 pacman-tools --uninstall
 ```
