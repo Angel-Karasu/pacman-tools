@@ -81,17 +81,29 @@ else
     while [ "$#" -ne 0 ]; do 
         case "$1" in
             -h|--help)
-                usage;;
+                usage
+                exit 0
+                ;;
             --update)
-                update;;
+                update
+                exit 0
+                ;;
             --uninstall)
-                uninstall;;
+                uninstall
+                exit 0
+                ;;
             -c|--clean)
-                clean_pacman;;
+                clean_pacman
+                shift
+                ;;
             -f|--fix-keys)
-                fix_keys;;
+                fix_keys
+                shift
+                ;;
             -u|--update-mirrors)
-                update_mirrors;;
+                update_mirrors
+                shift
+                ;;
             *)
                 echo "Error: Unknown option '$1'"
                 usage
