@@ -23,7 +23,7 @@ case $ID in
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
         ;;
     endeavouros)
-        add_in_update_mirrrors "https://raw.githubusercontent.com/endeavouros-team/PKGBUILDS/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
+        add_in_update_mirrrors "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
         add_arch
         ;;
     manjaro)
