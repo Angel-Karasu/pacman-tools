@@ -32,6 +32,6 @@ case $ID in
         ;;
 esac
 
-echo '[ "$REFRESH" ] && [ "$QUIET" ] && sudo pacman -Syy >/dev/null 2>&1 || sudo pacman -Syy;' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
+echo '[ "$REFRESH" ] && ([ "$QUIET" ] && sudo pacman -Syy >/dev/null 2>&1 || sudo pacman -Syy)' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
 
 exit 0
