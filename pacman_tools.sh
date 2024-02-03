@@ -41,7 +41,7 @@ fix_keys() {
     sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
     sudo pacman -Syy
     sudo pacman-key --init
-    for keyring in `pacman -Qq | sed -e "/keyring/b" -e d`; do
+    for keyring in `pacman -Qq | sed -e "/keyring/b" -e d | sort -r`; do
         sudo pacman-key --populate `echo $keyring | sed "s/-keyring//g"`
         sudo pacman -S --noconfirm $keyring
         printf "\nSuccess to fix $keyring\n"
