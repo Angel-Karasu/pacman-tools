@@ -56,7 +56,7 @@ pactools --uninstall
 ## To do
 
 - Add more Arch based-distributions compatible
-  - [ ] Garuda
+  - [ ] Garuda Linux
 
 ## License
 
