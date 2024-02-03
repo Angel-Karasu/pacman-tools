@@ -4,8 +4,7 @@ This is a simple set of tools for pacman, the package manager Arch Linux-based d
 
 ## Installation
 
-To install pactools, clone this repository and run the install script:
-
+To install pactools, clone this repository and run the install script
 ```shell
 git clone https://github.com/Angel-Karasu/pactools.git;
 cd pactools;
