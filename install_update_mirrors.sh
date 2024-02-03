@@ -23,11 +23,15 @@ case $ID in
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch
         ;;
     manjaro)
-         echo "sudo pacman-mirrors --fasttrack 6" | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
+        echo 'sudo pacman-mirrors $q --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
+        echo 'sudo pacman-mirrors $q --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
+        ;;
     *)
         echo "$ID is not compatible."
         exit 1
         ;;
 esac
+
+echo '[ "$REFRESH" ] && [ "$QUIET" ] && sudo pacman -Syy >/dev/null 2>&1 || sudo pacman -Syy;' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
 
 exit 0
