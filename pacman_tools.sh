@@ -64,6 +64,7 @@ update() {
     sudo git clone https://github.com/Angel-Karasu/pacman-tools.git /var/tmp/pacman-tools
     sudo chmod +x /var/tmp/pacman-tools/install.sh
     sudo sed -i 's|Add|Update|g; s|printf|#printf|g'  /var/tmp/pacman-tools/install.sh
+    echo ""
     /var/tmp/pacman-tools/install.sh
 
     printf "\nSuccess to update pacman-tools\n"
