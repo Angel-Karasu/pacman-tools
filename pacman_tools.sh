@@ -46,7 +46,6 @@ fix_keys() {
         sudo pacman -S --noconfirm $keyring
         printf "\nSuccess to fix $keyring\n"
     done
-    exit 0
 }
 
 update_mirrors() {
@@ -54,7 +53,6 @@ update_mirrors() {
     check_sudo
 
     /etc/pacman.d/update_mirrors.sh
-    exit 0
 }
 
 update() {
@@ -67,13 +65,11 @@ update() {
     /var/tmp/pacman-tools/install.sh
 
     printf "\nSuccess to update pacman-tools\n"
-    exit 0
 }
 
 uninstall() {
-    sudo rm -rf /etc/pacman.d/update_mirrors.sh /usr/local/bin/pacman-tools
+    sudo rm -f /etc/pacman.d/update_mirrors.sh /usr/local/bin/pacman-tools
     echo "Success to uninstall pacman-tools"
-    exit 0
 }
 
 if [ "$#" = 0 ]; then
