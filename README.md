@@ -18,17 +18,22 @@ cd ../
 
 To get the list of commands :
 
-- For pacman cleaner :
+- To get help, run :
+```shell
+pacman-tools -h
+```
+
+- To clean pacman, run :
 ```shell
 pacman-tools -c
 ```
 
-- For fix the keys
+- To fix pacman keys, run :
 ```shell
 pacman-tools -f
 ```
 
-- To update the mirrors
+- To update pacman mirrors, run :
 ```shell
 pacman-tools -u
 ```
