@@ -50,13 +50,13 @@ pactools --uninstall
 - Arch based-distributions compatible : 
   - Arch Linux
   - Artix Linux
+  - Manjaro
 
 ## To do
 
 - Add more Arch based-distributions compatible
   - [ ] EndeavourOS
   - [ ] Garuda
-  - [ ] Manjaro
 
 ## License
 

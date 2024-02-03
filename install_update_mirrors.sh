@@ -24,7 +24,6 @@ case $ID in
         ;;
     manjaro)
         echo 'sudo pacman-mirrors $q --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
-        echo 'sudo pacman-mirrors $q --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
         ;;
     *)
         echo "$ID is not compatible."
