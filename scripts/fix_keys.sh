@@ -69,6 +69,6 @@ while [ "$#" != 0 ]; do
     esac
 done
 
-[ ! "$REFRESH" ] || sudo pacman -Syy
+[ "$REFRESH" ] && sudo pacman -Syy
 
 exit 0

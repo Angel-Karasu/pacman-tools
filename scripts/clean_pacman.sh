@@ -22,7 +22,7 @@ cache() {
 
 dependencies() {
     check_sudo
-    ! pacman -Qdtq >/dev/null || sudo pacman -Rsn "`pacman -Qdtq`"
+    pacman -Qdtq >/dev/null && sudo pacman -Rsn "`pacman -Qdtq`"
 }
 
 if [ "$#" = 0 ]; then

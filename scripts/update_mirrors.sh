@@ -25,16 +25,16 @@ update_mirror_list() {
     check_sudo
 
     file=/etc/pacman.d/mirrorlist$([[ $(cat /etc/os-release | sed -e "/$1/b" -e d) ]] && echo '' || echo -$1)
-    [ ! "$BACKUP" ] || sudo cp $file $file.backup
+    [ "$BACKUP" ] && sudo cp $file $file.backup
 
     if [ "$VERBOSE" ]; then
         curl -s $2 | sed 's/#Server/Server/' | rankmirrors -w -n 6 - | sudo tee $file && sudo sed -i '/^#/d' $file
-        [ ! "$REFRESH" ] || sudo pacman -Syy
+        [ "$REFRESH" ] && sudo pacman -Syy
 
         printf "\nSuccess to update $1 mirrors\n"
     else
         curl -s $2 | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -w -n 6 - | sudo tee $file;
-        [ ! "$REFRESH" ] || sudo pacman -Syy >/dev/null 2>&1
+        [ "$REFRESH" ] && sudo pacman -Syy >/dev/null 2>&1
     fi
 }
 
