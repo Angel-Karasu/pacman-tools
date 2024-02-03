@@ -31,7 +31,7 @@ clean_pacman() {
     check_sudo
 
     sudo pacman -Scc
-    pacman -Qdtq >/dev/null && sudo pacman -Rsn `pacman -Qdtq`
+    pacman -Qdt >/dev/null && sudo pacman -Rsn `pacman -Qdtq`
 }
 
 fix_keys() {
