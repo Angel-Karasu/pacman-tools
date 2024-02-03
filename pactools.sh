@@ -43,7 +43,7 @@ fix_keys() {
     sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
     sudo pacman -Syy
     sudo pacman-key --init
-    keyrings= `pacman -Qq | sed -e "/keyring/b" -e d`
+    keyrings=`pacman -Qq | sed -e "/keyring/b" -e d`
     for keyring in $ID`echo $keyrings | sed "s/.*$ID//"` `echo $keyrings | sed "s/$ID.*//"`; do
         sudo pacman-key --populate `echo $keyring | sed "s/-keyring//g"`
         sudo pacman -S --noconfirm $keyring
