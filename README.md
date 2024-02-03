@@ -7,8 +7,8 @@ This is a simple set of tools for pacman, the package manager Arch Linux-based d
 To install pacman tools, clone this repository and run the install script:
 
 ```shell
-git clone https://github.com/Angel-Karasu/pacman-tools.git;
-cd pacman-tools;
+git clone https://github.com/Angel-Karasu/pactools.git;
+cd pactools;
 chmod +x ./install.sh;
 ./install.sh;
 cd ../
@@ -16,36 +16,34 @@ cd ../
 
 ## Usage
 
-To get the list of commands :
-
 - To get help, run :
 ```shell
-pacman-tools -h
+pactools -h
 ```
 
 - To clean pacman, run :
 ```shell
-pacman-tools -c
+pactools -c
 ```
 
 - To fix pacman keys, run :
 ```shell
-pacman-tools -f
+pactools -f
 ```
 
 - To update pacman mirrors, run :
 ```shell
-pacman-tools -u
+pactools -u
 ```
 
-- To update pacman-tools, run :
+- To update pactools, run :
 ```shell
-pacman-tools --update
+pactools --update
 ```
 
-- To uninstall pacman-tools, run :
+- To uninstall pactools, run :
 ```shell
-pacman-tools --uninstall
+pactools --uninstall
 ```
 
 ## Compatible

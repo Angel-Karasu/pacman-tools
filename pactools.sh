@@ -1,11 +1,11 @@
 #!/bin/sh
 
 usage() {
-    printf "Usage : pacman-tools [TOOL]\n\n"
+    printf "Usage : pactools [TOOL]\n\n"
     echo "Commands :"
     echo "  -h, --help           : Display this help."
-    echo "      --update         : Update pacman-tools."
-    echo "      --uninstall      : Uninstall pacman-tools."
+    echo "      --update         : Update pactools."
+    echo "      --uninstall      : Uninstall pactools."
     echo ""
     echo "Tools :"
     echo "  -c, --clean          : Clean pacman cache and remove unused dependencies."
@@ -59,20 +59,20 @@ update() {
     check_internet
     check_sudo
 
-    printf "Update pacman-tools\n\n"
+    printf "Update pactools\n\n"
     
-    sudo git clone https://github.com/Angel-Karasu/pacman-tools.git /var/tmp/pacman-tools
-    sudo chmod +x /var/tmp/pacman-tools/install.sh
-    sudo sed -i 's|Add|Update|g; s|printf|#printf|g'  /var/tmp/pacman-tools/install.sh
+    sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools
+    sudo chmod +x /var/tmp/pactools/install.sh
+    sudo sed -i 's|Add|Update|g; s|printf|#printf|g'  /var/tmp/pactools/install.sh
     echo ""
-    /var/tmp/pacman-tools/install.sh
+    /var/tmp/pactools/install.sh
 
-    printf "\nSuccess to update pacman-tools\n"
+    printf "\nSuccess to update pactools\n"
 }
 
 uninstall() {
-    sudo rm -f /etc/pacman.d/update_mirrors.sh /usr/local/bin/pacman-tools
-    echo "Success to uninstall pacman-tools"
+    sudo rm -f /etc/pacman.d/update_mirrors.sh /usr/local/bin/pactools
+    echo "Success to uninstall pactools"
 }
 
 if [ "$#" = 0 ]; then
