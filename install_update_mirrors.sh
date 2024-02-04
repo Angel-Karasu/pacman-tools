@@ -37,7 +37,8 @@ case $ID in
         add_arch
         ;;
     garuda)
-        add_in_update_mirrrors "https://raw.githubusercontent.com/chaotic-aur/pkgbuild-chaotic-mirrorlist/main/mirrorlist" chaotic-mirrorlist
+        check_package rate-mirrors
+        echo 'rate-mirrors --protocol https --save /etc/pacman.d/chaotic-mirrorlist --allow-root chaotic-aur' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
         add_arch
         ;;
     manjaro)
