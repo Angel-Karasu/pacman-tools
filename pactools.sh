@@ -81,6 +81,8 @@ uninstall() {
     echo "Success to uninstall pactools"
 }
 
+run() { [ "$QUIET" ] && $1 >/dev/null || $1; }
+
 if [ "$#" = 0 ]; then
     usage
 else
@@ -103,15 +105,15 @@ else
                 shift
                 ;;
             -c|--clean)
-                [ $QUIET ] && clean_pacman >/dev/null || clean_pacman
+                run clean_pacman
                 exit 0
                 ;;
             -f|--fix-keys)
-                [ $QUIET ] && fix_keys >/dev/null || fix_keys
+                run fix_keys
                 exit 0
                 ;;
             -u|--update-mirrors)
-                [ $QUIET ] && update_mirrors >/dev/null || update_mirrors
+                run update_mirrors
                 exit 0
                 ;;
             *)

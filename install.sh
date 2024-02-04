@@ -7,16 +7,16 @@ check_sudo
 
 printf "Install pactools\n\n"
 
-if ! pacman -T curl git pacman-contrib sed >/dev/null; then
+if ! pacman -T curl git sed >/dev/null; then
     check_internet
     echo "Install packages required"
-    sudo pacman -S --noconfirm `pacman -T curl git pacman-contrib sed`
+    sudo pacman -S --noconfirm `pacman -T curl git sed`
 fi
 
 sudo chmod +x ./*.sh
 
 echo "Config update mirrors"
-./install_update_mirrors.sh
+./install_update_mirrors.sh || sudo sed -i "/-u, --update-mirrors/d" ./pactools.sh
 
 echo "Add pactools command"
 sudo cp ./pactools.sh /usr/local/bin/pactools
