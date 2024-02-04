@@ -54,6 +54,15 @@ pactools --uninstall
   - Garuda
   - Manjaro
 
+## To do
+
+- Test on : 
+  - [ ] Arch Linux ARM
+  - [ ] Arch Linux CN
+  - [ ] Black Arch
+  - [ ] CachyOS
+  - [ ] RebornOS
+
 ## License
 
 This project is licensed under the [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/).
