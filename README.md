@@ -51,12 +51,8 @@ pactools --uninstall
   - Arch Linux
   - Artix Linux
   - EndeavourOS
+  - Garuda Linux
   - Manjaro
-
-## To do
-
-- Add more Arch based-distributions compatible
-  - [ ] Garuda Linux
 
 ## License
 
