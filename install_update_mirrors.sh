@@ -36,6 +36,10 @@ case $ID in
         echo 'eos-rankmirrors' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
         add_arch
         ;;
+    garuda)
+        add_in_update_mirrrors "https://raw.githubusercontent.com/chaotic-aur/pkgbuild-chaotic-mirrorlist/main/mirrorlist" chaotic-mirrorlist
+        add_arch
+        ;;
     manjaro)
         check_package pacman-mirrors
         echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null;;
