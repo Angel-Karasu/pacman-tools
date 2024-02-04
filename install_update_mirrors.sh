@@ -39,7 +39,7 @@ case $ID in
     garuda)
         check_package rate-mirrors
         CHAOTIC_FILE=/etc/pacman.d/chaotic-mirrorlist
-        echo "rate-mirrors --protocol https --save $CHAOTIC_FILE --allow-root chaotic-aur && sudo sed -i '/^#/d' $CHAOTIC_FILE" | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
+        echo "rate-mirrors --protocol https --save $CHAOTIC_FILE --allow-root chaotic-aur && sudo sed -i '/#/d' $CHAOTIC_FILE" | sudo tee -a $UPDATE_MIRRORS_FILE >/dev/null
         add_arch
         ;;
     manjaro)
