@@ -47,7 +47,7 @@ fix_keys() {
     sudo pacman -Syy
     sudo pacman-key --init
     keyrings=`pacman -Qq | sed -e "/keyring/b" -e d`
-    for keyring in $ID`echo $keyrings | sed "s/.*$ID//"` `echo $keyrings | sed "s/$ID.*//"`; do
+    for keyring in `echo $keyrings | tr ' ' '\n' | sed -e "/$ID/b" -e d` `echo $keyrings | tr ' ' '\n' | sed "/$ID/d"`; do
         sudo pacman-key --populate `echo $keyring | sed "s/-keyring//g"`
         sudo pacman -S --noconfirm $keyring
         printf "\nSuccess to fix $keyring\n\n"
