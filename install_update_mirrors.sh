@@ -25,8 +25,7 @@ case $ID in
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
         ;;
     endeavouros)
-        check_package eos-rankmirrors
-        echo 'eos-rankmirrors' | sudo tee -a update_mirrors.sh >/dev/null
+        add_in_update_mirrrors "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
         add_arch
         ;;
     garuda)
@@ -37,7 +36,8 @@ case $ID in
         ;;
     manjaro)
         check_package pacman-mirrors
-        echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a update_mirrors.sh >/dev/null;;
+        echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a update_mirrors.sh >/dev/null
+        ;;
     *)
         echo "$ID is not compatible."
         exit 1
