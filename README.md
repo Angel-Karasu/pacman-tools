@@ -59,6 +59,7 @@ pactools --uninstall
 - Test on : 
   - [ ] Arch Linux ARM
   - [ ] Arch Linux CN
+  - [ ] ArchCraft
   - [ ] Black Arch
   - [ ] CachyOS
   - [ ] RebornOS
