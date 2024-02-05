@@ -7,7 +7,7 @@ update_mirror_list() {
         [ "$t" ] && list+=" $t,$server"
     done
 
-    echo "$list" | tr ' ' '\n' | sort -t',' -k1,1n | sed 's|.*,||; s|=| = |g' | sudo tee /etc/pacman.d/$2
+    echo "$list" | tr ' ' '\n' | sort -t',' -k1,1n | sed 's|.*,||; s|=| = |g' | head -6 | sudo tee /etc/pacman.d/$2
 
     printf "\nSuccess to update mirrors\n\n"
 }
