@@ -3,9 +3,10 @@
 . /etc/os-release
 . ./pactools.sh >/dev/null
 
-sed -i '/}/q; s|}|}\n|' ./update_mirrors.sh
+sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
+add_in_pactools () { sed -i "/# End commands/i\ \t\t$1" ./pactools.sh; }
 
-add_in_update_mirrrors() { echo "update_mirror_list '$1' '$2'" | sudo tee -a update_mirrors.sh >/dev/null; }
+add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2'"; }
 
 add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1; }
 
@@ -42,8 +43,6 @@ case $ID in
         ;;
 esac
 
-echo 'sudo pacman -Syy' | sudo tee -a update_mirrors.sh >/dev/null
-sudo cp update_mirrors.sh /etc/pacman.d/
-sudo chmod +x /etc/pacman.d/update_mirrors.sh
+add_in_pactools 'sudo pacman -Syy'
 
 exit 0
