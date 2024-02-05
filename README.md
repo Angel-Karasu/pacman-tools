@@ -57,12 +57,28 @@ pactools --uninstall
 ## To do
 
 - Test on : 
-  - [ ] Arch Linux ARM
-  - [ ] Arch Linux CN
-  - [ ] ArchCraft
-  - [ ] Black Arch
-  - [ ] CachyOS
-  - [ ] RebornOS
+  - [ ] [Arch Linux ARM](https://archlinuxarm.org/)
+  - [ ] [Arch Linux CN](https://github.com/archlinuxcn/repo?tab=readme-ov-file)
+  - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
+  - [ ] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
+  - [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
+  - [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
+  - [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
+  - [ ] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
+  - [ ] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
+  - [ ] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
+  - [ ] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
+  - [ ] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
+  - [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
+  - [ ] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
+  - [ ] [Liya](https://distrowatch.com/table.php?distribution=liya)
+  - [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
+  - [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
+  - [ ] [OviOS Linux](https://distrowatch.com/table.php?distribution=ovios)
+  - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
+  - [ ] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
+  - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
+  - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
 
 ## License
 
