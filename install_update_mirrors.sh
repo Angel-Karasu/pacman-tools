@@ -3,7 +3,7 @@
 . /etc/os-release
 . ./pactools.sh >/dev/null
 
-sed -i '/}/q; s|}|}\n' ./update_mirrors.sh
+sed -i '/}/q; s|}|}\n|' ./update_mirrors.sh
 
 add_in_update_mirrrors() { echo "update_mirror_list '$1' '$2'" | sudo tee -a update_mirrors.sh >/dev/null; }
 
