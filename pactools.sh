@@ -60,6 +60,7 @@ update_mirrors() {
 
     update_mirror_list() {
         for server in `curl -s "$1" | tr -d '"#, ' | sed -e 's|url:|Server=|g; /Server/b' -e d | sed -e '/https/b' -e d`; do
+            server=$server$3
             t=`ping -c 1 "$(echo $server | sed 's|.*//||; s|/.*||')" 2>/dev/null | tail -1 | cut -d '/' -f 5`
             echo `echo $server | sed "s|.*=||"`"  **$t**"
             [ "$t" ] && list+=" $t,$server"
