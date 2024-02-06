@@ -79,6 +79,9 @@ pactools --uninstall
   - [ ] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
   - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
   - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
+ 
+- Add releases
+- Publish on AUR (Arch User Repository)
 
 ## License
 
