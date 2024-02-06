@@ -48,11 +48,11 @@ pactools --uninstall
 ## Compatible
 
 - Arch based-distributions compatible : 
-  - Arch Linux
-  - Artix Linux
-  - EndeavourOS
-  - Garuda
-  - Manjaro
+  - [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
+  - [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
+  - [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
+  - [Garuda](https://distrowatch.com/table.php?distribution=garuda)
+  - [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
 
 ## To do
 
