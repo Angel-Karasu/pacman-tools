@@ -45,42 +45,44 @@ pactools --update
 pactools --uninstall
 ```
 
-## Compatible
+## Tested
 
-- Arch based-distributions compatible : 
-  - [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
-  - [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
-  - [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
-  - [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
-  - [Garuda](https://distrowatch.com/table.php?distribution=garuda)
-  - [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
-  - [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
+- [x] [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
+- [ ] [Arch Linux ARM](https://archlinuxarm.org/)
+- [ ] [Arch Linux CN](https://github.com/archlinuxcn/repo?tab=readme-ov-file)
+- [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
+- [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
+- [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
+- [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
+- [x] [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
+- [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
+- [ ] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
+- [ ] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
+- [ ] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
+- [ ] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
+- [ ] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
+- [x] [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
+- [x] [Garuda](https://distrowatch.com/table.php?distribution=garuda)
+- [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
+- [ ] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
+- [ ] [Liya](https://distrowatch.com/table.php?distribution=liya)
+- [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
+- [x] [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
+- [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
+- [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
+- [x] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
+- [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
+- [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
+
+[x] *Tested distributions*
+[ ] *Not tested distributions*
+*It may work on untested distributions, but there's no guarantee.
 
 ## To do
 
-- Test on : 
-  - [ ] [Arch Linux ARM](https://archlinuxarm.org/)
-  - [ ] [Arch Linux CN](https://github.com/archlinuxcn/repo?tab=readme-ov-file)
-  - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
-  - [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
-  - [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
-  - [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
-  - [ ] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
-  - [ ] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
-  - [ ] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
-  - [ ] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
-  - [ ] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
-  - [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
-  - [ ] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
-  - [ ] [Liya](https://distrowatch.com/table.php?distribution=liya)
-  - [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
-  - [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
-  - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
-  - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
-  - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
- 
-- Add releases
-- Publish on AUR (Arch User Repository)
+- [ ] Testing distributions
+- [ ] Add releases
+- [ ] Publish on AUR (Arch User Repository)
 
 ## License
 
