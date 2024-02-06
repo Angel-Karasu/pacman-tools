@@ -59,7 +59,7 @@ update_mirrors() {
     check_sudo
 
     update_mirror_list() {
-        for server in `curl -s "$1" | sed -e "/Server/b" -e d | tr -d '# '`; do
+        for server in `curl "$1" | tr -d '"#, ' | sed -e 's|url:|Server=|g' -e "/Server/b" -e d`; do
             t=`ping -c 1 "$(echo $server | sed 's|.*//||; s|/.*||')" 2>/dev/null | tail -1 | cut -d '/' -f 5`
             echo `echo $server | sed "s|.*=||"`"  **$t**"
             [ "$t" ] && list+=" $t,$server"

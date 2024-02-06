@@ -10,14 +10,6 @@ add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2'"; }
 
 add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1; }
 
-check_package() {
-    if ! pacman -T $1 >/dev/null; then
-        check_internet
-        echo " - Install $1"
-        sudo pacman -S --noconfirm $1
-    fi
-}
-
 case $ID in
     arch)
         add_arch;;
@@ -34,9 +26,7 @@ case $ID in
         add_arch
         ;;
     manjaro)
-        check_package pacman-mirrors
-        echo 'sudo pacman-mirrors --fasttrack 6' | sudo tee -a update_mirrors.sh >/dev/null
-        ;;
+        add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist;;
     *)
         echo "$ID is not compatible."
         exit 1
