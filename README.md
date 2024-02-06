@@ -75,7 +75,9 @@ pactools --uninstall
 - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
 
 [x] *Tested distributions*
+
 [ ] *Not tested distributions*
+
 *It may work on untested distributions, but there's no guarantee.
 
 ## To do
