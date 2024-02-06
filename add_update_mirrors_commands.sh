@@ -3,8 +3,8 @@
 . /etc/os-release
 . ./pactools.sh >/dev/null
 
-sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
-add_in_pactools () { sed -i "/# End commands/i\ \t\t$1" ./pactools.sh; }
+sudo sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
+add_in_pactools () { sudo sed -i "/# End commands/i\ \t\t$1" ./pactools.sh; }
 
 add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2'"; }
 
