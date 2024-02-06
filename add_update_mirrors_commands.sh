@@ -25,6 +25,10 @@ case $ID in
         ;;
     manjaro)
         add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';;
+    rebornos)
+        add_in_update_mirrrors "https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist" reborn-mirrorlist
+        add_arch
+        ;;
     *)
         echo "$ID is not compatible."
         exit 1

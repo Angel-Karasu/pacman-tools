@@ -54,6 +54,7 @@ pactools --uninstall
   - [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
   - [Garuda](https://distrowatch.com/table.php?distribution=garuda)
   - [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
+  - [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
 
 ## To do
 
@@ -75,7 +76,6 @@ pactools --uninstall
   - [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
   - [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
   - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
-  - [ ] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
   - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
   - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
  
