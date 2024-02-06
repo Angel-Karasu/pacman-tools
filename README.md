@@ -1,6 +1,6 @@
 # PacTools
 
-This is a simple set of tools for pacman, the package manager Arch Linux-based distributions. It can clean pacman cache, remove unused packages, fix pacman keys and update pacman mirrors.
+This is a simple toolkit project for pacman, the package manager for Arch Linux-based distributions. It can clean pacman cache, remove unused packages, fix pacman keys and update pacman mirrors.
 
 ## Installation
 
