@@ -26,7 +26,7 @@ case $ID in
         add_arch
         ;;
     manjaro)
-        add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist '/stable/$repo/$arch';;
+        add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';;
     *)
         echo "$ID is not compatible."
         exit 1
