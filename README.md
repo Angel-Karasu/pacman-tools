@@ -74,7 +74,6 @@ pactools --uninstall
   - [ ] [Liya](https://distrowatch.com/table.php?distribution=liya)
   - [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
   - [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
-  - [ ] [OviOS Linux](https://distrowatch.com/table.php?distribution=ovios)
   - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
   - [ ] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
   - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
