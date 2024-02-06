@@ -13,7 +13,7 @@ add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=a
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
 
 case $ID in
-    arch|garuda)
+    arch|archcraft|garuda)
         add_arch;;
     artix)
         add_in_update_mirrrors "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist" mirrorlist

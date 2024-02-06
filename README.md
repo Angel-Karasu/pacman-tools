@@ -49,6 +49,7 @@ pactools --uninstall
 
 - Arch based-distributions compatible : 
   - [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
+  - [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
   - [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
   - [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
   - [Garuda](https://distrowatch.com/table.php?distribution=garuda)
@@ -60,7 +61,6 @@ pactools --uninstall
   - [ ] [Arch Linux ARM](https://archlinuxarm.org/)
   - [ ] [Arch Linux CN](https://github.com/archlinuxcn/repo?tab=readme-ov-file)
   - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
-  - [ ] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
   - [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
   - [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
   - [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
