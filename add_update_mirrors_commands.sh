@@ -23,7 +23,7 @@ case $ID in
         add_in_update_mirrrors "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-mirrorlist
         add_arch
         ;;
-    manjaro)
+    manjaro|biglinux)
         add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';;
     rebornos)
         add_in_update_mirrrors "https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist" reborn-mirrorlist

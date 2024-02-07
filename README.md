@@ -56,7 +56,7 @@ pactools --uninstall
 - [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
 - [x] [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
 - [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
-- [ ] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
+- [x] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
 - [ ] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
 - [ ] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
 - [ ] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
