@@ -10,8 +10,6 @@ add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2' '$3'"; 
 
 add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1; }
 
-[ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
-
 case $ID in
     arch|archcraft|garuda)
         add_arch;;
@@ -39,6 +37,7 @@ case $ID in
         ;;
 esac
 
+[ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
 add_in_pactools 'sudo pacman -Syy'
 
 exit 0
