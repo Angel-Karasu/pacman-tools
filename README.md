@@ -53,7 +53,7 @@ pactools --uninstall
 - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
 - [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
 - [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
-- [ ] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
+- [x] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
 - [x] [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
 - [ ] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
 - [x] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)

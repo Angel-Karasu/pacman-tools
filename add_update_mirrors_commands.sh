@@ -15,6 +15,10 @@ add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=a
 case $ID in
     arch|archcraft|garuda)
         add_arch;;
+    arcolinux)
+        add_in_update_mirrrors "https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist" arcolinux-mirrorlist
+        add_arch
+        ;;
     artix)
         add_in_update_mirrrors "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist" mirrorlist
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
