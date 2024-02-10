@@ -80,7 +80,7 @@ pactools --uninstall
 ## List of Arch Linux-based distributions
 
 - [x] [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
-- [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
+- [x] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
 - [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
 - [x] [Archman](https://distrowatch.com/table.php?distribution=archman)
 - [x] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
