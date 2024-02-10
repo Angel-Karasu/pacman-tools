@@ -17,22 +17,22 @@ cd ../
 
 - To get help, run :
 ```shell
-pactools -h
+pactools -h #pactools --help
 ```
 
 - To clean pacman, run :
 ```shell
-pactools -c
+pactools -c #pactools --clean
 ```
 
 - To fix pacman keys, run :
 ```shell
-pactools -f
+pactools -f #pactools --fix-keys
 ```
 
 - To update pacman mirrors, run :
 ```shell
-pactools -u
+pactools -u #pactools --update-mirrors
 ```
 
 - To update pactools, run :
