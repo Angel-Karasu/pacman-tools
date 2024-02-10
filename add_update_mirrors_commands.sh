@@ -22,7 +22,7 @@ add_mirrorlist 'artix-mirrorlist' 'https://gitea.artixlinux.org/packages/artix-m
 add_mirrorlist 'pacman-mirrors' 'https://repo.manjaro.org/mirrors.json' 'mirrorlist' 'stable/$repo/$arch';
 add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
 case $ID in
-    kaos) add_mirrorlist 'pacman-mirrorlist' 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist';;
+    kaos) add_mirrorlist 'pacman-mirrorlist' 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist' 'mirrorlist';;
     *) add_arch_mirrorlist 'pacman-mirrorlist';;
 esac
 
