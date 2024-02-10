@@ -1,7 +1,6 @@
 #!/bin/sh
 
 . /etc/os-release
-. ./pactools.sh >/dev/null
 
 sudo sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
 add_in_pactools () { sudo sed -i "/# End commands/i\ \t$1" ./pactools.sh; }
@@ -21,6 +20,10 @@ add_mirrorlist 'chaotic-mirrorlist' 'https://aur.chaotic.cx/mirrorlist.txt';
 add_mirrorlist 'blackarch-mirrorlist' 'https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist';
 add_mirrorlist 'artix-mirrorlist' 'https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist';
 add_mirrorlist 'pacman-mirrors' 'https://repo.manjaro.org/mirrors.json' 'mirrorlist' 'stable/$repo/$arch';
-add_arch_mirrorlist 'pacman-mirrorlist'; add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
+add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
+case $ID in
+    kaos) add_mirrorlist 'pacman-mirrorlist' 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist';;
+    *) add_arch_mirrorlist 'pacman-mirrorlist';;
+esac
 
 add_in_pactools 'sudo pacman -Syy'

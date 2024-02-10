@@ -69,6 +69,9 @@ pactools --uninstall
 - [EndeavourOS](https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist)
   - Package, file : `endeavouros-mirrorlist`
 
+- [KaOS](https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist)
+  - Package, file : `pacman-mirrorlist`, `mirrorlist`
+
 - [Manjaro](https://repo.manjaro.org/mirrors.json)
   - Package, file : `pacman-mirrors, pacman-mirrors-dev`, `mirrorlist`
 
@@ -94,7 +97,7 @@ pactools --uninstall
 - [x] [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
 - [x] [Garuda](https://distrowatch.com/table.php?distribution=garuda)
 - [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
-- [ ] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
+- [x] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
 - [x] [Liya](https://distrowatch.com/table.php?distribution=liya)
 - [x] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
 - [x] [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
