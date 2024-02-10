@@ -73,7 +73,7 @@ pactools --uninstall
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
 
 - [Manjaro](https://repo.manjaro.org/mirrors.json)
-  - Package, file : `pacman-mirrors, pacman-mirrors-dev`, `mirrorlist`
+  - Package, file : `pacman-mirrors | pacman-mirrors-dev`, `mirrorlist`
 
 - [RebornOS](https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist)
   - Package, file : `rebornos-mirrorlist`, `reborn-mirrorlist`
