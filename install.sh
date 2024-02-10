@@ -16,7 +16,7 @@ fi
 sudo chmod +x ./*.sh
 
 echo "Config update mirrors"
-./add_update_mirrors_commands.sh || sudo sed -i "/-u, --update-mirrors/d" ./pactools.sh
+./add_update_mirrors_commands.sh
 
 echo "Add pactools command"
 sudo cp ./pactools.sh /usr/local/bin/pactools

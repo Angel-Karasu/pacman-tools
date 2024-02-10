@@ -27,17 +27,12 @@ case $ID in
         add_distrib_and_arch "https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist" blackarch;;
     endeavouros)
         add_distrib_and_arch "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros;;
-    manjaro|biglinux)
-        add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';;
     rebornos)
         add_distrib_and_arch "https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist" reborn;;
-    *)
-        echo "$ID is not compatible."
-        exit 1
-        ;;
 esac
 
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
+[ "`pacman -T pacman-mirrors`" || "`pacman -T pacman-mirrors-dev`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';
 add_in_pactools 'sudo pacman -Syy'
 
 exit 0
