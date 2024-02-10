@@ -51,9 +51,6 @@ pactools --uninstall
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
   - Package, file : `archlinux-mirrorlist`
 
-- [ArchMan](https://gitlab.com/Archman-OS/archman-mirrorlist/-/raw/master/archmanmirror)
-  - Package, file : `archman-mirrorlist`, `archmanmirror`
-
 - [ArcoLinux](https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist)
   - Package, file : `arcolinux-mirrorlist-git`, `arcolinux-mirrorlist`
 

@@ -13,7 +13,6 @@ add_mirrorlist() { [ "`pacman -T $1`" ] || add_in_update_mirrrors $2 `[ "$3" ] &
 add_arch_mirrorlist() { add_mirrorlist "$1" 'https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on' "$2mirrorlist"; }
 
 # Sort by number of https server
-add_mirrorlist 'archman-mirrorlist' 'https://gitlab.com/Archman-OS/archman-mirrorlist/-/raw/master/archmanmirror' 'archmanmirror';
 add_mirrorlist 'rebornos-mirrorlist' 'https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist' 'reborn-mirrorlist';
 add_mirrorlist 'cachyos-mirrorlist' 'https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist';
 add_mirrorlist 'arcolinux-mirrorlist-git' 'https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist' 'arcolinux-mirrorlist';
