@@ -9,10 +9,6 @@ add_in_pactools () { sudo sed -i "/# End commands/i\ \t$1" ./pactools.sh; }
 add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2mirrorlist' '$3'"; }
 
 add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on"; }
-add_distrib_and_arch() {
-    add_in_update_mirrrors "$1" $2-
-    add_arch
-}
 
 case $ID in
     artix)
