@@ -4,7 +4,7 @@
 . ./pactools.sh >/dev/null
 
 sudo sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
-add_in_pactools () { sudo sed -i "/# End commands/i\ \t\t$1" ./pactools.sh; }
+add_in_pactools () { sudo sed -i "/# End commands/i\ \t$1" ./pactools.sh; }
 
 add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2' '$3'"; }
 
@@ -32,5 +32,5 @@ case $ID in
 esac
 
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
-[ "`pacman -T pacman-mirrors`" || "`pacman -T pacman-mirrors-dev`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';
+[ "`pacman -T pacman-mirrors`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';
 add_in_pactools 'sudo pacman -Syy'
