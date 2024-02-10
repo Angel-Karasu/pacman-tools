@@ -104,8 +104,8 @@ pactools --uninstall
 - [x] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
 - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
 - [x] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
-- [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
-- [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
+- [x] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
+- [X] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
 
 *sources : [DistroWatch](https://distrowatch.com)*
 
