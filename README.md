@@ -63,6 +63,11 @@ pactools --uninstall
 - [BlackArch](https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist)
   - Package, file : `blackarch-mirrorlist`
 
+- [CachyOS](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist)
+  - Package, file : `cachyos-mirrorlist`
+  - Package, file : `cachyos-v3-mirrorlist`
+  - Package, file : `cachyos-v4-mirrorlist`
+
 - [Chaotic-AUR](https://aur.chaotic.cx/mirrorlist.txt)
   - Package, file : `chaotic-mirrorlist`
 
@@ -90,7 +95,7 @@ pactools --uninstall
 - [x] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
 - [ ] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
 - [ ] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
-- [ ] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
+- [x] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
 - [x] [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
 - [x] [Garuda](https://distrowatch.com/table.php?distribution=garuda)
 - [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
