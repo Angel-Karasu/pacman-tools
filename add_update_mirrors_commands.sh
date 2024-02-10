@@ -6,11 +6,11 @@
 sudo sed -i '/# Start commands/,/# End commands/{//!d}' ./pactools.sh
 add_in_pactools () { sudo sed -i "/# End commands/i\ \t$1" ./pactools.sh; }
 
-add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2' '$3'"; }
+add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '`[ "$2" ] || echo $2-`mirrorlist' '$3'"; }
 
-add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on" mirrorlist$1; }
+add_arch() { add_in_update_mirrrors "https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on"; }
 add_distrib_and_arch() {
-    add_in_update_mirrrors "$1" $2-mirrorlist
+    add_in_update_mirrrors "$1" $2
     add_arch
 }
 
@@ -32,7 +32,7 @@ case $ID in
 esac
 
 # Sort by number of https server
-[ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
-[ "`pacman -T pacman-mirrors`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';
+[ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic;
+[ "`pacman -T pacman-mirrors`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" '' 'stable/$repo/$arch';
 
 add_in_pactools 'sudo pacman -Syy'
