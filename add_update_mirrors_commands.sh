@@ -15,8 +15,6 @@ add_distrib_and_arch() {
 }
 
 case $ID in
-    arcolinux)
-        add_distrib_and_arch "https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist" arcolinux;;
     artix)
         add_in_update_mirrrors "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist" mirrorlist
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
@@ -30,6 +28,7 @@ case $ID in
 esac
 
 # Sort by number of https server
+[ "`pacman -T arcolinux-mirrorlist-git`" ] || add_in_update_mirrrors "https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist" arcolinux-;
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-;
 [ "`pacman -T pacman-mirrors`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" '' 'stable/$repo/$arch';
 [ "`pacman -T pacman-mirrorlist`" ] || add_arch;
