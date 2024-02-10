@@ -19,14 +19,14 @@ add_mirrorlist 'arcolinux-mirrorlist-git' 'https://raw.githubusercontent.com/arc
 add_mirrorlist 'endeavouros-mirrorlist' 'https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist';
 add_mirrorlist 'chaotic-mirrorlist' 'https://aur.chaotic.cx/mirrorlist.txt';
 add_mirrorlist 'blackarch-mirrorlist' 'https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist';
-add_mirrorlist 'artix-mirrorlist' 'https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist';
 add_mirrorlist 'pacman-mirrors' 'https://repo.manjaro.org/mirrors.json' 'mirrorlist' 'stable/$repo/$arch';
-add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
 case $ID in
+    artix) add_pacman_mirrorlist 'https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist';;
     kaos) add_pacman_mirrorlist 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist';;
     hyperbola) add_pacman_mirrorlist 'https://www.hyperbola.info/mirrorlist/?country=all&protocol=https&use_mirror_status=on';;
     parabola) add_pacman_mirrorlist 'https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on';;
     *) add_arch_mirrorlist 'pacman-mirrorlist';;
 esac
+add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
 
 add_in_pactools 'sudo pacman -Syy'
