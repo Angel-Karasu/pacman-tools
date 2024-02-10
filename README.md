@@ -66,7 +66,7 @@ pactools --uninstall
 - [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
 - [ ] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
 - [ ] [Liya](https://distrowatch.com/table.php?distribution=liya)
-- [ ] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
+- [x] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
 - [x] [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
 - [ ] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
 - [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
