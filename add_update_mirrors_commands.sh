@@ -28,6 +28,7 @@ esac
 [ "`pacman -T arcolinux-mirrorlist-git`" ] || add_in_update_mirrrors "https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist" arcolinux-;
 [ "`pacman -T endeavouros-mirrorlist`" ] || add_in_update_mirrrors "https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist" endeavouros-;
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-;
+[ "`pacman -T blackarch-mirrorlist`" ] || add_in_update_mirrrors "https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist" blackarch-;
 [ "`pacman -T pacman-mirrors`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" '' 'stable/$repo/$arch';
 [ "`pacman -T pacman-mirrorlist`" ] || add_arch;
 
