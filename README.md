@@ -45,11 +45,38 @@ pactools --update
 pactools --uninstall
 ```
 
-## Tested
+## Compatible mirror list
+
+- [Arch Linux](https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on)
+  - Package, file : `pacman-mirrorlist`, `mirrorlist`
+  - Package, file : `archlinux-mirrorlist`
+
+- [ArcoLinux](https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist)
+  - Package, file : `arcolinux-mirrorlist-git`, `arcolinux-mirrorlist`
+
+- [Artix Linux](https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist)
+  - Package, file : `artix-mirrorlist`
+
+- [BlackArch](https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist)
+  - Package, file : `blackarch-mirrorlist`
+
+- [Chaotic-AUR](https://aur.chaotic.cx/mirrorlist.txt)
+  - Package, file : `chaotic-mirrorlist`
+
+- [EndeavourOS](https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist)
+  - Package, file : `endeavouros-mirrorlist`
+
+- [Manjaro](https://repo.manjaro.org/mirrors.json)
+  - Package, file : `pacman-mirrors, pacman-mirrors-dev`, `mirrorlist`
+
+- [RebornOS](https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist)
+  - Package, file : `rebornos-mirrorlist`, `reborn-mirrorlist`
+
+*Files are located in : `/etc/pacman.d/`*
+
+## List of Arch Linux-based distributions
 
 - [x] [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
-- [ ] [Arch Linux ARM](https://archlinuxarm.org/)
-- [ ] [Arch Linux CN](https://github.com/archlinuxcn/repo?tab=readme-ov-file)
 - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
 - [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
 - [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
@@ -73,6 +100,8 @@ pactools --uninstall
 - [x] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
 - [ ] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
 - [ ] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
+
+*sources : [DistroWatch](https://distrowatch.com)*
 
 *It may work on untested distributions, but there's no guarantee.
 - [x] *Tested distributions*
