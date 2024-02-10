@@ -19,8 +19,6 @@ case $ID in
         add_in_update_mirrrors "https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist" mirrorlist
         [ "`pacman -T archlinux-mirrorlist`" ] || add_arch -arch
         ;;
-    blackarch|athena)
-        add_distrib_and_arch "https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist" blackarch;;
 esac
 
 # Sort by number of https server
