@@ -65,8 +65,6 @@ pactools --uninstall
 
 - [CachyOS](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist)
   - Package, file : `cachyos-mirrorlist`
-  - Package, file : `cachyos-v3-mirrorlist`
-  - Package, file : `cachyos-v4-mirrorlist`
 
 - [Chaotic-AUR](https://aur.chaotic.cx/mirrorlist.txt)
   - Package, file : `chaotic-mirrorlist`
