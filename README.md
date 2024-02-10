@@ -51,6 +51,9 @@ pactools --uninstall
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
   - Package, file : `archlinux-mirrorlist`
 
+- [ArchMan](https://gitlab.com/Archman-OS/archman-mirrorlist/-/raw/master/archmanmirror)
+  - Package, file : `archman-mirrorlist`, `archmanmirror`
+
 - [ArcoLinux](https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist)
   - Package, file : `arcolinux-mirrorlist-git`, `arcolinux-mirrorlist`
 
@@ -79,7 +82,7 @@ pactools --uninstall
 - [x] [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
 - [ ] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
 - [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
-- [ ] [Archman](https://distrowatch.com/table.php?distribution=archman)
+- [x] [Archman](https://distrowatch.com/table.php?distribution=archman)
 - [x] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
 - [x] [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
 - [x] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
