@@ -17,7 +17,7 @@ add_mirrorlist 'archman-mirrorlist' 'https://gitlab.com/Archman-OS/archman-mirro
 add_mirrorlist 'rebornos-mirrorlist' 'https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist' 'reborn-mirrorlist';
 
 add_mirrorlist 'cachyos-mirrorlist' 'https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist';
-for v in 3 4; do [ "`pacman -T cachyos-v$v-mirrorlist`" ] || add_in_pactools "sed 's|\$arch|\$arch_v$v|' /etc/pacman.d/cachyos-mirrorlist | tee /etc/pacman.d/cachyos-v$v-mirrorlist >/dev/null"; done;
+for v in 3 4; do [ "`pacman -T cachyos-v$v-mirrorlist`" ] || add_in_pactools "sed 's|\$arch|\$arch_v$v|' /etc/pacman.d/cachyos-mirrorlist | sudo tee /etc/pacman.d/cachyos-v$v-mirrorlist >/dev/null"; done;
 
 add_mirrorlist 'arcolinux-mirrorlist-git' 'https://raw.githubusercontent.com/arcolinux/arcolinux-mirrorlist/master/etc/pacman.d/arcolinux-mirrorlist' 'arcolinux-mirrorlist';
 add_mirrorlist 'endeavouros-mirrorlist' 'https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist';
