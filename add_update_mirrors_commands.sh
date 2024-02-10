@@ -10,6 +10,7 @@ add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2' '$3'"; 
 add_mirrorlist() { [ "`pacman -T $1`" ] || add_in_update_mirrrors $2 `[ "$3" ] && echo $3 || echo $1` $4; }
 
 add_arch_mirrorlist() { add_mirrorlist "$1" 'https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on' "$2mirrorlist"; }
+add_pacman_mirrorlist() { add_mirrorlist 'pacman-mirrorlist' $ 'mirrorlist' }
 
 # Sort by number of https server
 add_mirrorlist 'rebornos-mirrorlist' 'https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist' 'reborn-mirrorlist';
@@ -22,8 +23,9 @@ add_mirrorlist 'artix-mirrorlist' 'https://gitea.artixlinux.org/packages/artix-m
 add_mirrorlist 'pacman-mirrors' 'https://repo.manjaro.org/mirrors.json' 'mirrorlist' 'stable/$repo/$arch';
 add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
 case $ID in
-    kaos) add_mirrorlist 'pacman-mirrorlist' 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist' 'mirrorlist';;
-    parabola) add_mirrorlist 'pacman-mirrorlist' 'https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on' 'mirrorlist';;
+    kaos) add_pacman_mirrorlist 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist';;
+    hyperbola) add_pacman_mirrorlist 'https://www.hyperbola.info/mirrorlist/?country=all&protocol=https&use_mirror_status=on';;
+    parabola) add_pacman_mirrorlist 'https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on';;
     *) add_arch_mirrorlist 'pacman-mirrorlist';;
 esac
 

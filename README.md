@@ -69,6 +69,9 @@ pactools --uninstall
 - [EndeavourOS](https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist)
   - Package, file : `endeavouros-mirrorlist`
 
+- [Hyperbola](https://www.hyperbola.info/mirrorlist/?country=all&protocol=https&use_mirror_status=on)
+  - Package, file : `pacman-mirrorlist`, `mirrorlist`
+
 - [KaOS](https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist)
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
 
@@ -99,7 +102,7 @@ pactools --uninstall
 - [x] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
 - [x] [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
 - [x] [Garuda](https://distrowatch.com/table.php?distribution=garuda)
-- [ ] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
+- [x] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
 - [x] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
 - [x] [Liya](https://distrowatch.com/table.php?distribution=liya)
 - [x] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
@@ -118,7 +121,7 @@ pactools --uninstall
 
 ## To do
 
-- [ ] Testing distributions
+- [x] Test distributions
 - [ ] Add releases
 - [ ] Publish on AUR (Arch User Repository)
 
