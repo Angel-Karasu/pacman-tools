@@ -34,5 +34,3 @@ esac
 [ "`pacman -T chaotic-mirrorlist`" ] || add_in_update_mirrrors "https://aur.chaotic.cx/mirrorlist.txt" chaotic-mirrorlist;
 [ "`pacman -T pacman-mirrors`" || "`pacman -T pacman-mirrors-dev`" ] || add_in_update_mirrrors "https://repo.manjaro.org/mirrors.json" mirrorlist 'stable/$repo/$arch';
 add_in_pactools 'sudo pacman -Syy'
-
-exit 0
