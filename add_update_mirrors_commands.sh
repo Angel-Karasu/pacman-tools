@@ -10,7 +10,7 @@ add_in_update_mirrrors() { add_in_pactools "update_mirror_list '$1' '$2' '$3'"; 
 add_mirrorlist() { [ "`pacman -T $1`" ] || add_in_update_mirrrors $2 `[ "$3" ] && echo $3 || echo $1` $4; }
 
 add_arch_mirrorlist() { add_mirrorlist "$1" 'https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on' "$2mirrorlist"; }
-add_pacman_mirrorlist() { add_mirrorlist 'pacman-mirrorlist' $ 'mirrorlist'; }
+add_pacman_mirrorlist() { add_mirrorlist 'pacman-mirrorlist' $1 'mirrorlist'; }
 
 # Sort by number of https server
 add_mirrorlist 'rebornos-mirrorlist' 'https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist' 'reborn-mirrorlist';
