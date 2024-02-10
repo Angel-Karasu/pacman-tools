@@ -75,6 +75,9 @@ pactools --uninstall
 - [Manjaro](https://repo.manjaro.org/mirrors.json)
   - Package, file : `pacman-mirrors` | `pacman-mirrors-dev`, `mirrorlist`
 
+- [Parabola](https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on)
+  - Package, file : `pacman-mirrorlist`, `mirrorlist`
+
 - [RebornOS](https://raw.githubusercontent.com/RebornOS-Team/rebornos-mirrorlist/main/reborn-mirrorlist)
   - Package, file : `rebornos-mirrorlist`, `reborn-mirrorlist`
 
@@ -102,7 +105,7 @@ pactools --uninstall
 - [x] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
 - [x] [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
 - [x] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
-- [ ] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
+- [x] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
 - [x] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
 - [x] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
 - [X] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
