@@ -1,19 +1,16 @@
 #!/bin/sh
 
 usage() {
-    printf "Usage : pactools [OPTIONS] [TOOL]\n\n"
+    printf "Usage : pactools [COMMAND]\n\n"
     echo "Commands :"
     echo "  -h, --help           : Display this help."
-    echo "      --update         : Update pactools."
-    echo "      --uninstall      : Uninstall pactools."
-    echo ""
-    echo "Options :"
-    echo "  -q, --quiet          : Quiet mode."
-    echo ""
-    echo "Tools :"
     echo "  -c, --clean          : Clean pacman cache and remove unused dependencies."
     echo "  -f, --fix-keys       : Refresh pacman keys."
     echo "  -u, --update-mirrors : Update pacman mirrors."
+    echo "      --update         : Update pactools."
+    echo "      --uninstall      : Uninstall pactools."
+    echo ""
+    echo "Use 'pactools [COMMAND] -h' to get help about this command"
     echo ""
 }
 
@@ -55,6 +52,39 @@ fix_keys() {
 }
 
 update_mirrors() {
+    usage() {
+        printf "Usage : pactools --update-mirrors [OPTIONS]\n\n"
+        echo "Commands :"
+        echo "  -h, --help         : Display this help."
+        echo ""
+        echo "Options :"
+        echo "  -p, --ping   VALUE : Set number of ping to increase precision, default=3."
+        echo "  -s, --server VALUE : Set number of server saved, default=5."
+        echo ""
+    }
+
+    nb_ping=3
+    nb_server=5
+
+    while [ $# != 0 ]; do
+        case "$1" in
+            -h|--help)
+                usage
+                exit 0;;
+            -p|--precision)
+                if [ "$2" -gt 0 ]; then
+                    nb_ping=$2
+                    shift 2
+                else shift; fi;;
+            -s|--server)
+                if [ "$2" -gt 1 ]; then
+                    nb_server=$(($2+1))
+                    shift 2
+                else shift; fi;;
+            *) shift;
+        esac
+    done
+
     check_internet
     check_sudo
 
@@ -62,12 +92,12 @@ update_mirrors() {
         list=""
         for server in `curl -s "$1" | tr -d '"#, ' | sed -e 's|url:|Server=|g; /Server/b' -e d | sed -e '/https/b' -e d`; do
             server=$server$3
-            t=`ping -c 1 "$(echo $server | sed 's|.*//||; s|/.*||')" 2>/dev/null | tail -1 | cut -d '/' -f 5`
+            t=`ping -c $nb_ping "$(echo $server | sed 's|.*//||; s|/.*||')" 2>/dev/null | tail -1 | cut -d '/' -f 5`
             echo `echo $server | sed "s|.*=||"`"  **$t**"
-            [ "$t" ] && list+=" $t,$server"
+            [ "$t" ] && list="$list $t,$server"
         done
 
-        echo "$list" | tr ' ' '\n' | sort -t',' -k1,1n | sed 's|.*,||; s|=| = |g' | head -6 | sudo tee /etc/pacman.d/$2
+        echo "$list" | tr ' ' '\n' | sort -t',' -k1,1n | sed 's|.*,||; s|=| = |g' | head -$nb_server | sudo tee /etc/pacman.d/$2
 
         printf "\nSuccess to update mirrors\n\n"
     }
@@ -96,46 +126,21 @@ uninstall() {
     echo "Success to uninstall pactools"
 }
 
-run() { [ "$QUIET" ] && $1 >/dev/null || $1; }
+run() { if [ "$QUIET" ]; then $1 >/dev/null 2>&1; else $1; fi; }
 
-if [ "$#" = 0 ]; then
-    usage
+if [ $# = 0 ]; then usage;
 else
-    while [ "$#" -ne 0 ]; do 
-        case "$1" in
-            -h|--help)
-                usage
-                exit 0
-                ;;
-            --update)
-                update
-                exit 0
-                ;;
-            --uninstall)
-                uninstall
-                exit 0
-                ;;
-            -q|--quiet)
-                QUIET=true
-                shift
-                ;;
-            -c|--clean)
-                run clean_pacman
-                exit 0
-                ;;
-            -f|--fix-keys)
-                run fix_keys
-                exit 0
-                ;;
-            -u|--update-mirrors)
-                run update_mirrors
-                exit 0
-                ;;
-            *)
-                echo "Error: Unknown option '$1'"
-                usage
-                exit 1
-                ;;
-        esac
-    done
+    case "$1" in
+        -h|--help) usage;;
+        -c|--clean) clean_pacman;;
+        -f|--fix-keys) fix_keys;;
+        -u|--update-mirrors) update_mirrors "$@";;
+        --update) update;;
+        --uninstall) uninstall;;
+        *)
+            echo "Error: Unknown option '$1'"
+            usage
+            exit 1;;
+    esac
+    exit 0;
 fi

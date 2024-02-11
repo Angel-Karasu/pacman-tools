@@ -1,7 +1,7 @@
 #!/bin/sh
 
 cd `realpath $(dirname $0)` || exit 1
-. ./pactools.sh >/dev/null
+. ./pactools.sh
 
 check_sudo
 
