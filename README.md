@@ -55,7 +55,7 @@ pactools --uninstall
   - Package, file : `arcolinux-mirrorlist-git`, `arcolinux-mirrorlist`
 
 - [Artix Linux](https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist)
-  - Package, file : `mirrorlist`
+  - Package, file : `artix-mirrorlist | pacman-mirrorlist`, `mirrorlist`
 
 - [BlackArch](https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist)
   - Package, file : `blackarch-mirrorlist`
