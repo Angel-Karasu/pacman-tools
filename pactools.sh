@@ -81,7 +81,11 @@ update_mirrors() {
                     nb_server=$(($2+1))
                     shift 2
                 else shift; fi;;
-            *) shift;
+            -u|--update-mirrors) shift;;
+            *)
+                echo "Error: Unknown option '$1'"
+                usage
+                exit 1;;
         esac
     done
 
@@ -103,6 +107,9 @@ update_mirrors() {
     }
 
     # Start commands
+ 	update_mirror_list 'https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist' 'mirrorlist' ''
+ 	update_mirror_list 'https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on' 'archlinux-mirrorlist' ''
+ 	sudo pacman -Syy
     # End commands
 }
 
