@@ -28,10 +28,43 @@ check_sudo() {
 }
 
 clean_pacman() {
+    usage() {
+        printf "Usage : pactools --clean [OPTIONS]\n\n"
+        echo "Commands :"
+        echo "  -h, --help      : Display this help."
+        echo ""
+        echo "Options :"
+        echo "  -n, --noconfirm : Clean without confirmation."
+        echo ""
+    }
+    case "$2" in
+        -h|--help)
+            usage
+            exit 0;;
+        -n|--noconfirm) noconfirm=--noconfirm;;
+    esac
+
     check_sudo
 
-    sudo pacman -Scc
-    pacman -Qdt >/dev/null && sudo pacman -Rsn `pacman -Qdtq`
+    sudo pacman -Scc $noconfirm; echo ""
+
+    remove_dpds() { [ "$@" ] && sudo pacman --noconfirm -Rsn "$@"; }
+    dependencies="`pacman -Qdtq`"
+    if [ "$noconfirm" ]; then remove_dpds $dependencies
+    elif [ "$dependencies" ]; then
+        echo "Unused dependencies :"
+        for d in $dependencies; do
+            i=$(( $i + 1))
+            echo "  $i. $d"
+        done
+        printf "\nEnter numbers of packages you want to remove (e.g., '1 2', '1-3') : "; read -r
+        for nb_dpds in $REPLY; do
+            if [ "`echo "$nb_dpds" | tr -cd '-'`" ]; then
+                remove_dpds "`echo $dependencies | tr ' ' '\n' | sed -n \"$(echo $nb_dpds | sed 's|-.*||'),$(echo $nb_dpds | sed 's|.*-||')p\"`"
+            else remove_dpds "`echo $dependencies | tr ' ' '\n' | sed -n \"$(echo $nb_dpds)p\"`"
+            fi
+        done
+    fi
 }
 
 fix_keys() {
@@ -139,7 +172,7 @@ if [ $# = 0 ]; then usage;
 else
     case "$1" in
         -h|--help) usage;;
-        -c|--clean) clean_pacman;;
+        -c|--clean) clean_pacman "$@";;
         -f|--fix-keys) fix_keys;;
         -u|--update-mirrors) update_mirrors "$@";;
         --update) update;;
