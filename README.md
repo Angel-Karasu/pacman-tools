@@ -55,7 +55,7 @@ pactools --uninstall
   - Package, file : `arcolinux-mirrorlist-git`, `arcolinux-mirrorlist`
 
 - [Artix Linux](https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist)
-  - Package, file : `artix-mirrorlist | pacman-mirrorlist`, `mirrorlist`
+  - Package, file : `artix-mirrorlist` | `pacman-mirrorlist`, `mirrorlist`
 
 - [BlackArch](https://raw.githubusercontent.com/BlackArch/blackarch-site/master/blackarch-mirrorlist)
   - Package, file : `blackarch-mirrorlist`
@@ -76,7 +76,7 @@ pactools --uninstall
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
 
 - [Manjaro](https://repo.manjaro.org/mirrors.json)
-  - Package, file : `pacman-mirrors` | `pacman-mirrors-dev`, `mirrorlist`
+  - Package, file : `pacman-mirrors` | `pacman-mirrors-dev` | `pacman-mirrorlist`, `mirrorlist`
 
 - [Parabola](https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on)
   - Package, file : `pacman-mirrorlist`, `mirrorlist`
