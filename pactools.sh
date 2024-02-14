@@ -6,6 +6,7 @@ usage() {
     echo "  -h, --help           : Display this help."
     echo "  -c, --clean          : Clean pacman cache and remove unused dependencies."
     echo "  -f, --fix-keys       : Refresh pacman keys."
+    echo "  -r, --reinstall      : Reinstall packages."
     echo "  -u, --update-mirrors : Update pacman mirrors."
     echo "      --update         : Update pactools."
     echo "      --uninstall      : Uninstall pactools."
@@ -118,6 +119,28 @@ fix_keys() {
     fi
 }
 
+reinstall_packages() {
+    usage() {
+        printf "Usage : pactools --reinstall [OPTIONS]\n\n"
+        echo "Commands :"
+        echo "  -h, --help         : Display this help."
+        echo ""
+        echo "Options :"
+        echo "  -d, --dependencies : Reinstall only dependencies installed packages."
+        echo "  -e, --explicit     : Reinstall only explicit installed packages."
+        echo ""
+    }
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0;;
+        -d|--dependencies) opt=d;;
+        -e|--explicit) opt=e;;
+    esac
+
+    sudo pacman -S --noconfirm `pacman -Qnq$opt`
+}
+
 update_mirrors() {
     usage() {
         printf "Usage : pactools --update-mirrors [OPTIONS]\n\n"
@@ -228,6 +251,7 @@ else
         -h|--help) usage;;
         -c|--clean) clean_pacman "$@";;
         -f|--fix-keys) fix_keys "$@";;
+        -r|--reinstall) reinstall_packages $2;;
         -u|--update-mirrors) update_mirrors "$@";;
         --update) update $2;;
         --uninstall) uninstall $2;;
