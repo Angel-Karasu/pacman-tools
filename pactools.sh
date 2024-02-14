@@ -178,6 +178,19 @@ update_mirrors() {
 }
 
 update() {
+    usage() {
+        echo "Usage : pactools --update"
+        printf "Description : Update pactools, this is recommended if you have installed new mirrorlist\n\n"
+        echo "Commands :"
+        echo "  -h, --help : Display this help."
+        echo ""
+    }
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0;;
+    esac
+
     check_internet
     check_sudo
 
@@ -193,11 +206,21 @@ update() {
 }
 
 uninstall() {
-    sudo rm -f /usr/local/bin/pactools
-    echo "Success to uninstall pactools"
-}
+    usage() {
+        echo "Usage : pactools --uninstall"
+        printf "Description : Uninstall pactools\n\n"
+        echo "Commands :"
+        echo "  -h, --help : Display this help."
+        echo ""
+    }
+    case "$1" in
+        -h|--help)
+            usage
+            exit 0;;
+    esac
 
-run() { if [ "$QUIET" ]; then $1 >/dev/null 2>&1; else $1; fi; }
+    sudo rm -f /usr/local/bin/pactools && echo "Success to uninstall pactools"
+}
 
 if [ $# = 0 ]; then usage;
 else
@@ -206,8 +229,8 @@ else
         -c|--clean) clean_pacman "$@";;
         -f|--fix-keys) fix_keys "$@";;
         -u|--update-mirrors) update_mirrors "$@";;
-        --update) update;;
-        --uninstall) uninstall;;
+        --update) update $2;;
+        --uninstall) uninstall $2;;
         *)
             echo "Error: Unknown option '$1'"
             usage
