@@ -122,7 +122,6 @@ pactools --uninstall
 ## To do
 
 - [x] Test distributions
-- [ ] Add releases
 - [ ] Publish on AUR (Arch User Repository)
 
 ## License
