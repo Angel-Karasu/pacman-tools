@@ -57,7 +57,7 @@ clean_pacman() {
             i=$(( $i + 1))
             echo "  $i. $d"
         done
-        printf "\nEnter numbers of packages you want to remove (e.g., '1 2', '1-3') : "; read -r
+        printf "\nEnter numbers of package you want to remove (e.g., '1 2', '1-3') : "; read -r
         for nb_dpds in $REPLY; do
             if [ "`echo "$nb_dpds" | tr -cd '-'`" ]; then
                 remove_dpds "`echo $dependencies | tr ' ' '\n' | sed -n \"$(echo $nb_dpds | sed 's|-.*||'),$(echo $nb_dpds | sed 's|.*-||')p\"`"
@@ -68,20 +68,54 @@ clean_pacman() {
 }
 
 fix_keys() {
+    usage() {
+        printf "Usage : pactools --fix-keys [OPTIONS]\n\n"
+        echo "Commands :"
+        echo "  -h, --help : Display this help."
+        echo ""
+        echo "Options :"
+        echo "  -a, --all  : Reinstall all keyrings."
+        echo ""
+    }
+    case "$2" in
+        -h|--help)
+            usage
+            exit 0;;
+        -a|--all) all=true;;
+    esac
+
     check_internet
     check_sudo
-
     . /etc/os-release
 
-    sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
-    sudo pacman -Syy
-    sudo pacman-key --init
+    fix_keyring() {
+        if [ "$1" ]; then
+            sudo pacman-key --populate `echo $1 | sed "s/-keyring//g"`
+            sudo pacman -S --noconfirm $1
+            printf "\nSuccess to fix $1\n\n"
+        fi
+    }
     keyrings=`pacman -Qq | sed -e "/keyring/b" -e d`
-    for keyring in `echo $keyrings | tr ' ' '\n' | sed -e "/$ID/b" -e d` `echo $keyrings | tr ' ' '\n' | sed "/$ID/d"`; do
-        sudo pacman-key --populate `echo $keyring | sed "s/-keyring//g"`
-        sudo pacman -S --noconfirm $keyring
-        printf "\nSuccess to fix $keyring\n\n"
-    done
+    keyrings="`echo $keyrings | tr ' ' '\n' | sed -e \"/$ID/b\" -e d` `echo $keyrings | tr ' ' '\n' | sed \"/$ID/d\"`"
+    if [ "$all" ]; then
+        sudo rm -rf /etc/pacman.d/gnupg /var/lib/pacman/sync
+        sudo pacman -Syy
+        sudo pacman-key --init
+        for keyring in $keyrings; do fix_keyring $keyring; done
+    else
+        echo "Keyrings :"
+        for k in $keyrings; do
+            i=$(( $i + 1))
+            echo "  $i. $k"
+        done
+        printf "\nEnter numbers of keyring you want to reinstall (e.g., '1 2', '1-3') : "; read -r
+        for nb_key in $REPLY; do
+            if [ "`echo "$nb_key" | tr -cd '-'`" ]; then
+                fix_keyring "`echo $keyrings | tr ' ' '\n' | sed -n \"$(echo $nb_key | sed 's|-.*||'),$(echo $nb_key | sed 's|.*-||')p\"`"
+            else fix_keyring "`echo $keyrings | tr ' ' '\n' | sed -n \"$(echo $nb_key)p\"`"
+            fi
+        done
+    fi
 }
 
 update_mirrors() {
@@ -170,7 +204,7 @@ else
     case "$1" in
         -h|--help) usage;;
         -c|--clean) clean_pacman "$@";;
-        -f|--fix-keys) fix_keys;;
+        -f|--fix-keys) fix_keys "$@";;
         -u|--update-mirrors) update_mirrors "$@";;
         --update) update;;
         --uninstall) uninstall;;
