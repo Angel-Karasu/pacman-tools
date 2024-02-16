@@ -2,7 +2,7 @@
 
 This is a simple toolkit project for pacman, the package manager for Arch Linux-based distributions. It can clean pacman cache, remove unused packages, fix pacman keys, reinstall all packages and update pacman mirrors.
 
-## Installation
+## How to install
 
 To install pactools, clone this repository and run the install script
 ```shell
@@ -13,7 +13,7 @@ chmod +x ./install.sh;
 cd ../
 ```
 
-## Usage
+## How to use
 
 - To get help, run :
 ```shell
