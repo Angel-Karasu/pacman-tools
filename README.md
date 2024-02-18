@@ -91,42 +91,36 @@ pactools --uninstall
 
 *Files are located in : `/etc/pacman.d/`*
 
-## List of Arch Linux-based distributions
+## List of Arch Linux-based tested distributions
 
-- [x] [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
-- [x] [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
-- [x] [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
-- [x] [Archman](https://distrowatch.com/table.php?distribution=archman)
-- [x] [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
-- [x] [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
-- [x] [Athena OS](https://distrowatch.com/table.php?distribution=athena)
-- [x] [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
-- [x] [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
-- [x] [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
-- [X] [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
-- [x] [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
-- [x] [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
-- [x] [Garuda](https://distrowatch.com/table.php?distribution=garuda)
-- [x] [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
-- [x] [KaOS](https://distrowatch.com/table.php?distribution=kaos)
-- [x] [Liya](https://distrowatch.com/table.php?distribution=liya)
-- [x] [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
-- [x] [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
-- [x] [Obarun](https://distrowatch.com/table.php?distribution=obarun)
-- [x] [Parabola](https://distrowatch.com/table.php?distribution=parabola)
-- [x] [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
-- [x] [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
-- [X] [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
-
-*sources : [DistroWatch](https://distrowatch.com)*
-
-*It may work on untested distributions, but there's no guarantee.
-- [x] *Tested distributions*
-- [ ] *Not tested distributions*
+- [Arch Linux](https://distrowatch.com/table.php?distribution=arch)
+- [ArchBang](https://distrowatch.com/table.php?distribution=archbang)
+- [ArchCraft](https://distrowatch.com/table.php?distribution=archcraft)
+- [Archman](https://distrowatch.com/table.php?distribution=archman)
+- [ArcoLinux](https://distrowatch.com/table.php?distribution=arco)
+- [Artix Linux](https://distrowatch.com/table.php?distribution=artix)
+- [Athena OS](https://distrowatch.com/table.php?distribution=athena)
+- [BigLinux](https://distrowatch.com/table.php?distribution=biglinux)
+- [BlackArch](https://distrowatch.com/table.php?distribution=blackarch)
+- [BlendOS](https://distrowatch.com/table.php?distribution=blendos)
+- [Bluestar Linux](https://distrowatch.com/table.php?distribution=bluestar)
+- [CachyOS](https://distrowatch.com/table.php?distribution=Cachyos)
+- [EndeavourOS](https://distrowatch.com/table.php?distribution=endeavour)
+- [Garuda](https://distrowatch.com/table.php?distribution=garuda)
+- [Hyperbola](https://distrowatch.com/table.php?distribution=hyperbola)
+- [KaOS](https://distrowatch.com/table.php?distribution=kaos)
+- [Liya](https://distrowatch.com/table.php?distribution=liya)
+- [Mabox Linux](https://distrowatch.com/table.php?distribution=mabox)
+- [Manjaro](https://distrowatch.com/table.php?distribution=manjaro)
+- [Obarun](https://distrowatch.com/table.php?distribution=obarun)
+- [Parabola](https://distrowatch.com/table.php?distribution=parabola)
+- [RebornOS](https://distrowatch.com/table.php?distribution=rebornos)
+- [SDesk](https://distrowatch.com/table.php?distribution=sdesk)
+- [Snal Linux](https://distrowatch.com/table.php?distribution=snal)
 
 ## To do
 
-- [x] Test distributions
+- [ ] Change method of mirrors speed test 
 - [ ] Publish on AUR (Arch User Repository)
 
 ## License
