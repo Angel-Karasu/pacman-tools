@@ -49,7 +49,7 @@ clean_pacman() {
 
     sudo pacman -Scc $noconfirm; echo ""
 
-    remove_dpds() { [ "$@" ] && sudo pacman --noconfirm -Rsn "$@"; }
+    remove_dpds() { [ "$@" ] && sudo pacman --noconfirm -Rsn $@; }
     dependencies="`pacman -Qdtq`"
     if [ "$noconfirm" ]; then remove_dpds $dependencies
     elif [ "$dependencies" ]; then
