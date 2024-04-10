@@ -2,15 +2,14 @@
 
 This is a simple toolkit project for pacman, the package manager for Arch Linux-based distributions. It can clean pacman cache, remove unused packages, fix pacman keys, reinstall all packages and update pacman mirrors.
 
-## How to install
+## Installation
 
-To install pactools, clone this repository and run the install script
+Clone this repository and run the install script
 ```shell
 git clone https://github.com/Angel-Karasu/pactools.git;
 cd pactools;
 chmod +x ./install.sh;
 ./install.sh;
-cd ../
 ```
 
 ## How to use
