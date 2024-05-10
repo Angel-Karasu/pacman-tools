@@ -1,7 +1,7 @@
 #!/bin/sh
 
 usage() {
-    printf "Usage : pactools [COMMAND]\n\n"
+    echo "Usage : pactools [COMMAND]"; echo
     echo "Commands :"
     echo "  -h, --help           : Display this help."
     echo "  -c, --clean          : Clean pacman cache and remove unused dependencies."
@@ -10,9 +10,8 @@ usage() {
     echo "  -u, --update-mirrors : Update pacman mirrors."
     echo "      --update         : Update pactools."
     echo "      --uninstall      : Uninstall pactools."
-    echo ""
-    echo "Use 'pactools [COMMAND] -h' to get help about this command"
-    echo ""
+    echo
+    echo "Use 'pactools [COMMAND] -h' to get help about this command" echo
 }
 
 check_internet() {
@@ -30,13 +29,13 @@ check_sudo() {
 
 clean_pacman() {
     usage() {
-        printf "Usage : pactools --clean [OPTIONS]\n\n"
+        echo "Usage : pactools --clean [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help      : Display this help."
-        echo ""
+        echo
         echo "Options :"
         echo "  -n, --noconfirm : Clean without confirmation."
-        echo ""
+        echo
     }
     case "$2" in
         -h|--help)
@@ -47,7 +46,7 @@ clean_pacman() {
 
     check_sudo
 
-    sudo pacman -Scc $noconfirm; echo ""
+    sudo pacman -Scc $noconfirm; echo
 
     remove_dpds() { [ "$@" ] && sudo pacman --noconfirm -Rsn $@; }
     dependencies="`pacman -Qdtq`"
@@ -70,13 +69,13 @@ clean_pacman() {
 
 fix_keys() {
     usage() {
-        printf "Usage : pactools --fix-keys [OPTIONS]\n\n"
+        echo "Usage : pactools --fix-keys [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help : Display this help."
-        echo ""
+        echo
         echo "Options :"
         echo "  -a, --all  : Reinstall all keyrings."
-        echo ""
+        echo
     }
     case "$2" in
         -h|--help)
@@ -93,7 +92,7 @@ fix_keys() {
         if [ "$1" ]; then
             sudo pacman-key --populate `echo $1 | sed "s/-keyring//g"`
             sudo pacman -S --noconfirm $1
-            printf "\nSuccess to fix $1\n\n"
+            echo; echo "Success to fix $1"; echo
         fi
     }
     keyrings=`pacman -Qq | sed -e "/keyring/b" -e d`
@@ -121,14 +120,14 @@ fix_keys() {
 
 reinstall_packages() {
     usage() {
-        printf "Usage : pactools --reinstall [OPTIONS]\n\n"
+        echo "Usage : pactools --reinstall [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help         : Display this help."
-        echo ""
+        echo
         echo "Options :"
         echo "  -d, --dependencies : Reinstall only dependencies installed packages."
         echo "  -e, --explicit     : Reinstall only explicit installed packages."
-        echo ""
+        echo
     }
     case "$1" in
         -h|--help)
@@ -143,14 +142,14 @@ reinstall_packages() {
 
 update_mirrors() {
     usage() {
-        printf "Usage : pactools --update-mirrors [OPTIONS]\n\n"
+        echo "Usage : pactools --update-mirrors [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help         : Display this help."
-        echo ""
+        echo
         echo "Options :"
         echo "  -p, --ping   VALUE : Set number of ping to increase precision, default=3."
         echo "  -s, --server VALUE : Set number of server saved, default=5."
-        echo ""
+        echo
     }
 
     nb_ping=3
@@ -193,7 +192,7 @@ update_mirrors() {
 
         echo "$list" | tr ' ' '\n' | sort -t',' -k1,1n | sed 's|.*,||; s|=| = |g' | head -$nb_server | sudo tee /etc/pacman.d/$2
 
-        printf "\nSuccess to update mirrors\n\n"
+        echo; echo "Success to update mirrors"; echo
     }
 
     # Start commands
@@ -203,10 +202,10 @@ update_mirrors() {
 update() {
     usage() {
         echo "Usage : pactools --update"
-        printf "Description : Update pactools, this is recommended if you have installed new mirrorlist\n\n"
+        echo "Description : Update pactools, this is recommended if you have installed new mirrorlist"; echo
         echo "Commands :"
         echo "  -h, --help : Display this help."
-        echo ""
+        echo
     }
     case "$1" in
         -h|--help)
@@ -217,24 +216,24 @@ update() {
     check_internet
     check_sudo
 
-    printf "Update pactools\n\n"
+    ech "Update pactools"; echo
     
     sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools || exit 1
     sudo chmod +x /var/tmp/pactools/install.sh
     sudo sed -i 's|Add|Update|g; s|printf|#printf|g'  /var/tmp/pactools/install.sh
-    echo ""
+    echo
     /var/tmp/pactools/install.sh
 
-    printf "\nSuccess to update pactools\n"
+    echo; echo "Success to update pactools"
 }
 
 uninstall() {
     usage() {
         echo "Usage : pactools --uninstall"
-        printf "Description : Uninstall pactools\n\n"
+        echo "Description : Uninstall pactools"; echo
         echo "Commands :"
         echo "  -h, --help : Display this help."
-        echo ""
+        echo
     }
     case "$1" in
         -h|--help)
