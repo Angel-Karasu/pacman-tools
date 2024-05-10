@@ -11,7 +11,7 @@ usage() {
     echo "      --update         : Update pactools."
     echo "      --uninstall      : Uninstall pactools."
     echo
-    echo "Use 'pactools [COMMAND] -h' to get help about this command" echo
+    echo "Use 'pactools [COMMAND] -h' to get help about this command"; echo
 }
 
 check_internet() {
