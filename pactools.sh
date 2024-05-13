@@ -1,6 +1,6 @@
 #!/bin/sh
 
-usage() {
+help() {
     echo "Usage : pactools [COMMAND]"; echo
     echo "Commands :"
     echo "  -h, --help           : Display this help."
@@ -28,7 +28,7 @@ check_sudo() {
 }
 
 clean_pacman() {
-    usage() {
+    help() {
         echo "Usage : pactools --clean [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help      : Display this help."
@@ -39,7 +39,7 @@ clean_pacman() {
     }
     case "$2" in
         -h|--help)
-            usage
+            help
             exit 0;;
         -n|--noconfirm) noconfirm=--noconfirm;;
     esac
@@ -68,7 +68,7 @@ clean_pacman() {
 }
 
 fix_keys() {
-    usage() {
+    help() {
         echo "Usage : pactools --fix-keys [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help : Display this help."
@@ -79,7 +79,7 @@ fix_keys() {
     }
     case "$2" in
         -h|--help)
-            usage
+            help
             exit 0;;
         -a|--all) all=true;;
     esac
@@ -119,7 +119,7 @@ fix_keys() {
 }
 
 reinstall_packages() {
-    usage() {
+    help() {
         echo "Usage : pactools --reinstall [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help         : Display this help."
@@ -131,7 +131,7 @@ reinstall_packages() {
     }
     case "$1" in
         -h|--help)
-            usage
+            help
             exit 0;;
         -d|--dependencies) opt=d;;
         -e|--explicit) opt=e;;
@@ -141,7 +141,7 @@ reinstall_packages() {
 }
 
 update_mirrors() {
-    usage() {
+    help() {
         echo "Usage : pactools --update-mirrors [OPTIONS]"; echo
         echo "Commands :"
         echo "  -h, --help         : Display this help."
@@ -158,7 +158,7 @@ update_mirrors() {
     while [ $# != 0 ]; do
         case "$1" in
             -h|--help)
-                usage
+                help
                 exit 0;;
             -p|--precision)
                 if [ "$2" -gt 0 ]; then
@@ -173,7 +173,7 @@ update_mirrors() {
             -u|--update-mirrors) shift;;
             *)
                 echo "Error: Unknown option '$1'"
-                usage
+                help
                 exit 1;;
         esac
     done
@@ -200,7 +200,7 @@ update_mirrors() {
 }
 
 update() {
-    usage() {
+    help() {
         echo "Usage : pactools --update"
         echo "Description : Update pactools, this is recommended if you have installed new mirrorlist"; echo
         echo "Commands :"
@@ -209,7 +209,7 @@ update() {
     }
     case "$1" in
         -h|--help)
-            usage
+            help
             exit 0;;
     esac
 
@@ -228,7 +228,7 @@ update() {
 }
 
 uninstall() {
-    usage() {
+    help() {
         echo "Usage : pactools --uninstall"
         echo "Description : Uninstall pactools"; echo
         echo "Commands :"
@@ -237,17 +237,17 @@ uninstall() {
     }
     case "$1" in
         -h|--help)
-            usage
+            help
             exit 0;;
     esac
 
     sudo rm -f /usr/local/bin/pactools && echo "Success to uninstall pactools"
 }
 
-if [ $# = 0 ]; then usage;
+if [ $# = 0 ]; then help;
 else
     case "$1" in
-        -h|--help) usage;;
+        -h|--help) help;;
         -c|--clean) clean_pacman "$@";;
         -f|--fix-keys) fix_keys "$@";;
         -r|--reinstall) reinstall_packages $2;;
@@ -256,7 +256,7 @@ else
         --uninstall) uninstall $2;;
         *)
             echo "Error: Unknown option '$1'"
-            usage
+            help
             exit 1;;
     esac
     exit 0;
