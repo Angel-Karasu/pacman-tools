@@ -23,7 +23,7 @@ case $ID in
     kaos) add_pacman_mirrorlist 'https://raw.githubusercontent.com/KaOSx/core/master/pacman-mirrorlist/mirrorlist' core;;
     manjaro) add_pacman_mirrorlist 'https://repo.manjaro.org/mirrors.json' core 'stable/$repo/$arch';;
     parabola) add_pacman_mirrorlist 'https://www.parabola.nu/mirrorlist/?country=all&protocol=https&use_mirror_status=on' core;;
-    *) add_arch_mirrorlist 'pacman-';;
+    *) add_arch_mirrorlist 'pacman-mirrorlist';;
 esac
 add_arch_mirrorlist 'archlinux-mirrorlist' archlinux-;
 
