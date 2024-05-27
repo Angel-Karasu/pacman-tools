@@ -7,11 +7,8 @@ check_sudo
 
 echo "Install pactools"; echo
 
-if ! pacman -T curl git sed >/dev/null; then
-    check_internet
-    echo "Install packages required"
-    sudo pacman -S --noconfirm `pacman -T curl git sed`
-fi
+echo "Install packages required"
+sudo pacman -S --needed --noconfirm curl git sed || exit 1
 
 sudo chmod +x ./*.sh
 

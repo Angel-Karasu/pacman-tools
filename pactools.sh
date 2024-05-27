@@ -3,15 +3,16 @@
 help() {
   echo "Usage : pactools [COMMAND]"; echo
   echo "Commands :"
-  echo "  -h, --help       : Display this help."
-  echo "  -c, --clean      : Clean pacman cache and remove unused dependencies."
-  echo "  -f, --fix-keys     : Refresh pacman keys."
-  echo "  -r, --reinstall    : Reinstall packages."
-  echo "  -u, --update-mirrors : Update pacman mirrors."
-  echo "    --update     : Update pactools."
-  echo "    --uninstall    : Uninstall pactools."
+  echo "  -h, --help            : Display this help."
+  echo "  -c, --clean           : Clean pacman cache and remove unused dependencies."
+  echo "  -f, --fix-keys        : Refresh pacman keys."
+  echo "  -r, --reinstall       : Reinstall packages."
+  echo "  -u, --update-mirrors  : Update pacman mirrors."
   echo
-  echo "Use 'pactools [COMMAND] -h' to get help about this command"; echo
+  echo "      --update          : Update pactools."
+  echo "      --uninstall       : Uninstall pactools."
+  echo
+  echo "Use 'pactools [COMMAND] -h' to get help about the command"; echo
 }
 
 check_internet() {
@@ -31,7 +32,7 @@ clean_pacman() {
   help() {
     echo "Usage : pactools --clean [OPTIONS]"; echo
     echo "Commands :"
-    echo "  -h, --help    : Display this help."
+    echo "  -h, --help      : Display this help."
     echo
     echo "Options :"
     echo "  -n, --noconfirm : Clean without confirmation."
@@ -122,11 +123,11 @@ reinstall_packages() {
   help() {
     echo "Usage : pactools --reinstall [OPTIONS]"; echo
     echo "Commands :"
-    echo "  -h, --help     : Display this help."
+    echo "  -h, --help          : Display this help."
     echo
     echo "Options :"
-    echo "  -d, --dependencies : Reinstall only dependencies installed packages."
-    echo "  -e, --explicit   : Reinstall only explicit installed packages."
+    echo "  -d, --dependencies  : Reinstall only dependencies installed packages."
+    echo "  -e, --explicit      : Reinstall only explicit installed packages."
     echo
   }
   case "$1" in
@@ -145,7 +146,7 @@ update_mirrors() {
   help() {
     echo "Usage : pactools --update-mirrors [OPTIONS]"; echo
     echo "Commands :"
-    echo "  -h, --help     : Display this help."
+    echo "  -h, --help            : Display this help."
     echo
     echo "Options :"
     echo "  -m, --max-time  VALUE : Set number of seconds before timeout, default=2"
@@ -188,7 +189,7 @@ update_mirrors() {
   arch=`uname -m`
 
   update_mirror_list() {
-    repo=$2
+    repo="$2"
     list=""
     for server in `curl -s "$1" | tr -d '"#, ' | sed -e 's|url:|Server=|g; /Server/b' -e d | sed -e '/https/b' -e d`; do
       server="$server$4"
@@ -208,74 +209,30 @@ update_mirrors() {
   }
 
   # Start commands
- 	update_mirror_list 'https://gitea.artixlinux.org/packages/artix-mirrorlist/raw/branch/master/mirrorlist' 'system' 'mirrorlist' ''
- 	update_mirror_list 'https://archlinux.org/mirrorlist/?country=all&protocol=https&use_mirror_status=on' 'core' 'archlinux-mirrorlist' ''
- 	sudo pacman -Syy
   # End commands
 }
 
 update() {
-  help() {
-    echo "Usage : pactools --update"
-    echo "Description : Update pactools, this is recommended if you have installed new mirrorlist"; echo
-    echo "Commands :"
-    echo "  -h, --help : Display this help."
-    echo
-  }
-  case "$1" in
-    -h|--help)
-      help
-      exit 0
-    ;;
-  esac
-
-  check_internet
   check_sudo
-
-  # echo "Update pactools"; echo
   
   sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools || exit 1
   sudo chmod +x /var/tmp/pactools/install.sh
   sudo sed -i 's|Add|Update|g; s|Install|Update|g; s|install|update|g; s|printf|#printf|g' /var/tmp/pactools/install.sh
   echo
-  /var/tmp/pactools/install.sh
-
-  # echo; echo "Success to update pactools"
+  sudo /var/tmp/pactools/install.sh
 }
 
-uninstall() {
-  help() {
-    echo "Usage : pactools --uninstall"
-    echo "Description : Uninstall pactools"; echo
-    echo "Commands :"
-    echo "  -h, --help : Display this help."
-    echo
-  }
-  case "$1" in
-    -h|--help)
-      help
-      exit 0
-    ;;
-  esac
-
-  sudo rm -f /usr/local/bin/pactools && echo "Success to uninstall pactools"
-}
-
-if [ $# = 0 ]; then help;
-else
-  case "$1" in
-    -h|--help) help;;
-    -c|--clean) clean_pacman "$@";;
-    -f|--fix-keys) fix_keys "$@";;
-    -r|--reinstall) reinstall_packages $2;;
-    -u|--update-mirrors) update_mirrors "$@";;
-    --update) update $2;;
-    --uninstall) uninstall $2;;
-    *)
-      echo "Error: Unknown option '$1'"
-      help
-      exit 1
-    ;;
-  esac
-  exit 0;
-fi
+case "$1" in
+  -h|--help) help;;
+  -c|--clean) clean_pacman "$@";;
+  -f|--fix-keys) fix_keys "$@";;
+  -r|--reinstall) reinstall_packages "$2";;
+  -u|--update-mirrors) update_mirrors "$@";;
+  --update) update;;
+  --uninstall) sudo rm -f /usr/local/bin/pactools && echo "Success to uninstall pactools";;
+  *)
+    echo "Error: Unknown option '$1'"
+    help
+    exit 1
+  ;;
+esac
