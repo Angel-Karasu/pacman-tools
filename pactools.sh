@@ -222,17 +222,21 @@ update() {
   sudo /var/tmp/pactools/install.sh
 }
 
-case "$1" in
-  -h|--help) help;;
-  -c|--clean) clean_pacman "$@";;
-  -f|--fix-keys) fix_keys "$@";;
-  -r|--reinstall) reinstall_packages "$2";;
-  -u|--update-mirrors) update_mirrors "$@";;
-  --update) update;;
-  --uninstall) sudo rm -f /usr/local/bin/pactools && echo "Success to uninstall pactools";;
-  *)
-    echo "Error: Unknown option '$1'"
-    help
-    exit 1
-  ;;
-esac
+if [ $# = 0 ]; then help;
+else
+  case "$1" in
+    -h|--help) help;;
+    -c|--clean) clean_pacman "$@";;
+    -f|--fix-keys) fix_keys "$@";;
+    -r|--reinstall) reinstall_packages $2;;
+    -u|--update-mirrors) update_mirrors "$@";;
+    --update) update $2;;
+    --uninstall) uninstall $2;;
+    *)
+      echo "Error: Unknown option '$1'"
+      help
+      exit 1
+    ;;
+  esac
+  exit 0;
+fi
