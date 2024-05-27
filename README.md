@@ -7,8 +7,7 @@ This is a simple toolkit project for pacman, the package manager for Arch Linux-
 Clone this repository and run the install script
 ```shell
 git clone https://github.com/Angel-Karasu/pactools.git;
-cd pactools;
-chmod +x ./install.sh;
+cd pactools; chmod +x ./install.sh;
 ./install.sh;
 ```
 
@@ -67,9 +66,6 @@ pactools --uninstall
 - [CachyOS](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist)
   - Package, file : `cachyos-mirrorlist`
 
-- [Chaotic-AUR](https://aur.chaotic.cx/mirrorlist.txt)
-  - Package, file : `chaotic-mirrorlist`
-
 - [EndeavourOS](https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist)
   - Package, file : `endeavouros-mirrorlist`
 
@@ -119,7 +115,6 @@ pactools --uninstall
 
 ## To do
 
-- [ ] Change method of mirrors speed test 
 - [ ] Publish on AUR (Arch User Repository)
 
 ## License
