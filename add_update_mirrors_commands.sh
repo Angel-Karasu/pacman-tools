@@ -13,7 +13,7 @@ add_arch_mirrorlist() { add_mirrorlist "$1" "https://archlinux.org/mirrorlist/?c
 add_cachyos_mirrorlist() {
   [ "$1" ] && v="-$1";
   mirrorfile="cachyos$v-mirrorlist"
-  [ "`pacman -T $mirrorfile`" ] || add_in_pactools "arch_$1=\$arch"
+  [ "`pacman -T $mirrorfile`" ] || add_in_pactools "arch_$1=\"\$arch\"_$1"
   add_mirrorlist $mirrorfile "https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos$v-mirrorlist/cachyos$v-mirrorlist" "cachyos$v";
 }
 add_pacman_mirrorlist() { add_mirrorlist 'pacman-mirrorlist' $1 $2 'mirrorlist' $3; }
