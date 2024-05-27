@@ -66,6 +66,12 @@ pactools --uninstall
 - [CachyOS](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-mirrorlist/cachyos-mirrorlist)
   - Package, file : `cachyos-mirrorlist`
 
+- [CachyOS-v3](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-v3-mirrorlist/cachyos-v3-mirrorlist)
+  - Package, file : `cachyos-v3-mirrorlist`
+
+- [CachyOS-v4](https://raw.githubusercontent.com/CachyOS/CachyOS-PKGBUILDS/master/cachyos-v4-mirrorlist/cachyos-v4-mirrorlist)
+  - Package, file : `cachyos-v4-mirrorlist`
+
 - [EndeavourOS](https://gitlab.com/endeavouros-filemirror/PKGBUILDS/-/raw/master/endeavouros-mirrorlist/endeavouros-mirrorlist)
   - Package, file : `endeavouros-mirrorlist`
 
