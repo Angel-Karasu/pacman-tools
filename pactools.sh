@@ -162,7 +162,7 @@ update_mirrors() {
         help
         exit 0
       ;;
-      -p|--precision)
+      -m|--max-time)
         if [ "$2" -gt 0 ]; then
           max_time=$2
           shift 2
