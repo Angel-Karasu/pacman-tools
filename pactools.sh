@@ -38,6 +38,7 @@ clean_pacman() {
     echo "  -n, --noconfirm : Clean without confirmation."
     echo
   }
+
   case "$2" in
     -h|--help)
       help
@@ -51,6 +52,7 @@ clean_pacman() {
   sudo pacman -Scc $noconfirm; echo
 
   remove_dpds() { [ "$@" ] && sudo pacman --noconfirm -Rsn $@; }
+
   dependencies="`pacman -Qdtq`"
   if [ "$noconfirm" ]; then remove_dpds $dependencies
   elif [ "$dependencies" ]; then
@@ -78,6 +80,7 @@ fix_keys() {
     echo "  -a, --all  : Reinstall all keyrings."
     echo
   }
+
   case "$2" in
     -h|--help)
       help
@@ -97,6 +100,7 @@ fix_keys() {
       echo; echo "Success to fix $1"; echo
     fi
   }
+  
   keyrings=`pacman -Qq | sed -e "/keyring/b" -e d`
   keyrings="`echo $keyrings | tr ' ' '\n' | sed -e \"/$ID/b\" -e d` `echo $keyrings | tr ' ' '\n' | sed \"/$ID/d\"`"
   if [ "$all" ]; then
@@ -130,6 +134,7 @@ reinstall_packages() {
     echo "  -e, --explicit      : Reinstall only explicit installed packages."
     echo
   }
+
   case "$1" in
     -h|--help)
       help
@@ -149,7 +154,7 @@ update_mirrors() {
     echo "  -h, --help            : Display this help."
     echo
     echo "Options :"
-    echo "  -m, --max-time  VALUE : Set number of seconds before timeout, default=2"
+    echo "  -m, --max-time  VALUE : Set number of seconds before timeout, default=2.0"
     echo "  -s, --server    VALUE : Set number of servers saved, default=5"
     echo
   }
@@ -164,7 +169,7 @@ update_mirrors() {
         exit 0
       ;;
       -m|--max-time)
-        if [ "$2" -gt 0 ]; then
+        if [ "$2" ]; then
           max_time=$2
           shift 2
         else shift; fi
