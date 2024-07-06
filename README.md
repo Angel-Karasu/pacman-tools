@@ -6,7 +6,7 @@ This is a simple toolkit project for pacman, the package manager for Arch Linux-
 
 Clone this repository and run the install script
 ```shell
-git clone https://github.com/Angel-Karasu/pactools.git;
+git clone https://codeberg.org/Angel-Karasu/pactools.git;
 cd pactools; chmod +x ./install.sh;
 ./install.sh;
 ```

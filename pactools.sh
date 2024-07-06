@@ -220,7 +220,7 @@ update_mirrors() {
 update() {
   check_sudo
   
-  sudo git clone https://github.com/Angel-Karasu/pactools.git /var/tmp/pactools || exit 1
+  sudo git clone https://codeberg.org/Angel-Karasu/pactools.git; /var/tmp/pactools || exit 1
   sudo chmod +x /var/tmp/pactools/install.sh
   sudo sed -i 's|Add|Update|g; s|Install|Update|g; s|install|update|g; s|printf|#printf|g' /var/tmp/pactools/install.sh
   echo

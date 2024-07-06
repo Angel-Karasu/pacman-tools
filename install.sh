@@ -18,8 +18,8 @@ echo "Config update mirrors"
 echo "Add pactools command"
 sudo cp ./pactools.sh /usr/local/bin/pactools
 
-printf "\nWould you want to remove the installation script ? [Y/n] "; read -r
-[ "`echo $REPLY | tr N n | cut -c1`" = n ] || sudo rm -rf ../pactools
+printf "\nWould you want to remove the installation folder ? [Y/n] "; read -r
+[ "`echo $REPLY | tr N n | cut -c1`" = n ] || sudo rm -rf ../`realpath $(dirname $0)`
 
 echo; echo "Success to install pactools"
 exit 0
